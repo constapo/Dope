@@ -36,6 +36,13 @@ Then append the **realism guard** from the Realism standard below.
 The goal is footage a viewer takes for real handheld phone/camera B-roll, never "AI video".
 
 **Prompting**
+- **Camera height and angle (owner rule):** always handheld phone at chest/hand height
+  (about 1.2–1.5 m), level horizon, looking slightly down at the floor or straight at the work,
+  as a person standing in the room would film it. Never top-down, overhead, from the ceiling,
+  drone, crane or floor-level. Add to every prompt: "filmed handheld on a smartphone at chest
+  height, level horizon, standing eye-line, slightly downward angle".
+- **Never drawings, cartoons, animation or illustrated stand-ins** — not even for previews.
+  A preview uses real photos/clips or one approved real-looking test clip.
 - **One subject, one action, one camera move per clip.** Where a shot below lists several
   actions separated by ";" or ",", generate only the first one by default. Splitting it into
   more clips needs your approval, because it costs more.
