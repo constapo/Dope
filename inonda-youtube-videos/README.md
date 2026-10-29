@@ -32,3 +32,5 @@ Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [
   free-generated clips, or Inonda's own footage. Not from other people's published videos without a
   licence: reusing their clips in a company ad is usually copyright infringement and gets
   Content-ID claims on YouTube/Facebook.
+- **Mixing is fine** (owner, 2026-10-29): a video can combine licensed stock cuts with generated
+  shots; whatever the licensed cuts don't cover is generated for free.
