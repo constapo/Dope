@@ -19,13 +19,7 @@ top-down, from the ceiling or floor-level. No drawn/animated previews (owner, 20
 Drawn/animated previews are banned. Optional "before/after" split: shot 1 and shot 5 side by side with a wipe at 0:15.
 
 ## Picture source
-Real footage from an Inonda tiling job only, filmed on a phone at chest height, level, vertical.
-No AI-generated or drawn footage (owner, 2026-10-29).
-
-Clips to film (5–10 s each, vertical, steady, daylight):
-1. Old floor: slow walk-in at chest height showing the cracked/worn tiles.
-2. Old floor, the same room from the doorway.
-3. Removing an old tile (chisel), filmed by a second person standing nearby.
-4. Laying a new tile with spacers and the level on top.
-5. Finished floor: slow sideways walk so the window light glides across the shine.
-6. A hand slowly running across the new tiles.
+1. Paid AI video clips, realistic, every one filmed from the right angle (handheld phone at chest
+   height, level). One test clip first; price quoted and approved before anything runs.
+2. Real clips from an Inonda tiling job, if the owner has them (same angle rule).
+No drawn or animated footage (owner, 2026-10-29).

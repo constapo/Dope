@@ -31,8 +31,9 @@ Rules for every **AI** shot:
 
 Then append the **realism guard** from the Realism standard below.
 
-> **Owner rule (2026-10-29):** AI-generated footage is not accepted for interior works. Use only
-> real on-site footage for those jobs; the AI notes below do not apply to them.
+> **Owner rule (2026-10-29):** AI-generated footage of interior works is used, but every clip must
+> look real and be filmed from the right angle: handheld phone at chest/hand height, level horizon.
+> Any clip shot from the ceiling, top-down, floor-level, or that looks drawn, is rejected.
 
 ## Realism standard (applies to every AI shot)
 
