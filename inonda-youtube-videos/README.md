@@ -24,3 +24,6 @@ Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [
   bathrooms), but only when it looks real and is filmed from the right angle: handheld phone at
   chest/hand height, level horizon (owner, 2026-10-29: "must be...but always from right angle of
   filming"). Generated clips from the ceiling, top-down, floor-level or drawn/cartoon are rejected.
+- **Free sources only for generating footage — never paid services** (owner, 2026-10-29: "search
+  and find always freewares sources on generating shoots...never paid sources"). Use free tools,
+  free tiers or open models; never spend credits or money on generation.

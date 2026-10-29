@@ -19,7 +19,11 @@ top-down, from the ceiling or floor-level. No drawn/animated previews (owner, 20
 Drawn/animated previews are banned. Optional "before/after" split: shot 1 and shot 5 side by side with a wipe at 0:15.
 
 ## Picture source
-1. Paid AI video clips, realistic, every one filmed from the right angle (handheld phone at chest
-   height, level). One test clip first; price quoted and approved before anything runs.
+1. Free AI clips only (owner: never paid sources). Free route found 2026-10-29: Hugging Face
+   free Spaces — FLUX.1-schnell (realistic still) → Wan 2.2 image-to-video
+   (zerogpu-aoti/wan2-2-fp8da-aoti-faster) or LTX-Video (Lightricks/ltx-video-distilled).
+   Anonymous use from this cloud gets 0 s of free GPU time; it needs a FREE Hugging Face
+   account token, stored as the environment secret HF_TOKEN (never pasted in chat).
+   Pollinations still answers 402. Every clip: handheld phone at chest height, level.
 2. Real clips from an Inonda tiling job, if the owner has them (same angle rule).
 No drawn or animated footage (owner, 2026-10-29).
