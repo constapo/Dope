@@ -54,3 +54,11 @@ Settings used in the approved reel: `speed=0.90`, `lang="en-us"`, 0.35 s pause b
 Reference builder: `inonda-youtube-videos/free-build/build_reel_v01_george.py`. Use another voice
 only if the owner asks for it. Keep the approved style too: Greek subtitles on all narration, and
 a silent (not narrated) bilingual English/Greek "Contact us / Follow us" end card.
+
+## No prices, no client budgets – owner's standing rule (2026-10-29)
+
+The company does not work with fixed prices. In anything made for Inonda (videos, reels, shorts,
+posts, thumbnails, titles, descriptions, subtitles) never show, say or caption a price, price range,
+cost figure or price placeholder, and never talk about clients' budgets ("on a budget", "what it
+costs", "save here / spend here"). Say instead that every job is different and that we visit and
+give a clear written quote after a free inspection.

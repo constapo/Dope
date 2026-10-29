@@ -308,6 +308,14 @@ Format: date · what was asked · what was done / status.
     unavailable, so the background is a drawn tile pattern; run with `--photo job.jpg` to use a real
     job photo. Offer text = "Free inspection & written quote" (real). Cost €0.
 
+54. **2026-10-29 · "Company doesn't work with fixed prices; never mention prices on any creations (videos
+    for social media or YouTube); never talk about clients' budgets in company videos."** → Standing
+    rule added to CLAUDE.md and the video-producer skill. In Dope: removed every price/budget figure
+    and price placeholder from all 20 scripts (EN narration, on-screen text, Greek subtitles,
+    descriptions) and added the rule to `inonda-youtube-videos/README.md`. Videos whose whole topic is
+    cost/budget (v03 budget kitchen, v09 bathroom cost, v14 low-cost rental upgrades, parts of v02,
+    v10, v15) need the owner's decision: rewrite or drop.
+
 ## Open items waiting on the owner
 - claude-x-jev (item 36): decide whether to set OPENROUTER_API_KEY + enable the Jev gate hook (spends credits per Bash call).
 - Websites (item 32): on the PC, follow `tools/wasmer/README.md` (install Wasmer CLI,

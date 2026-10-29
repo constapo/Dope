@@ -30,8 +30,10 @@ Restate the idea in one sentence before you start, so the owner can see you unde
    Another voice only if the owner asks.
 4. **House style for narrated videos:** Greek subtitles on all narration; a silent (not
    narrated) bilingual English/Greek "Contact us / Follow us" end card for Inonda videos.
-5. Never auto-open or auto-play results on the owner's computer — report paths/links.
-6. Log the request in `memory/requests.md`, commit and push with the work.
+5. **No prices, no client budgets** in any video, caption, title or description (owner rule
+   2026-10-29). Say "we visit and give a clear written quote" instead.
+6. Never auto-open or auto-play results on the owner's computer — report paths/links.
+7. Log the request in `memory/requests.md`, commit and push with the work.
 
 ## Step 1 — Brief (fast, mostly inferred)
 
