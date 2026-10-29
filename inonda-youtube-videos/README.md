@@ -20,3 +20,6 @@ Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [
 - **Camera always at hand height, level, like a person filming with a phone.** No views from the
   ceiling, no top-down/overhead shots, no drone or crane angles, no low floor-level angles.
   Horizon level, slight natural hand movement (owner, 2026-10-29).
+- **No AI-generated footage of interior works.** The owner has never accepted generated videos of
+  interior work (owner, 2026-10-29: "never accepted such generated videos in interiors works").
+  Interior jobs (tiles, floors, walls, kitchens, bathrooms...) use only real footage filmed on site.
