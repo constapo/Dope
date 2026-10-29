@@ -27,3 +27,8 @@ Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [
 - **Free sources only for generating footage — never paid services** (owner, 2026-10-29: "search
   and find always freewares sources on generating shoots...never paid sources"). Use free tools,
   free tiers or open models; never spend credits or money on generation.
+- **Videos may be packed from many cuts** (owner, 2026-10-29). Cuts come from footage whose licence
+  allows commercial reuse: free stock (Mixkit, Pexels, Pixabay, Coverr), CC0/CC-BY clips (credited),
+  free-generated clips, or Inonda's own footage. Not from other people's published videos without a
+  licence: reusing their clips in a company ad is usually copyright infringement and gets
+  Content-ID claims on YouTube/Facebook.
