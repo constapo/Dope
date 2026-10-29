@@ -34,3 +34,7 @@ Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [
   Content-ID claims on YouTube/Facebook.
 - **Mixing is fine** (owner, 2026-10-29): a video can combine licensed stock cuts with generated
   shots; whatever the licensed cuts don't cover is generated for free.
+- **Free tools that work from the cloud (2026-10-29):** AI Horde (anonymous, photoreal SDXL stills,
+  ~10 min queue, max 768x1344), Kokoro (voice), ffmpeg (handheld moves, edit), Mixkit (free stock).
+  Blocked here without an account: Hugging Face ZeroGPU, Pollinations (402), Pixabay (403),
+  Wikimedia Commons (429). Run several jobs in parallel; take the first good result.

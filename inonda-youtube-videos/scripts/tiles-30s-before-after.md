@@ -1,5 +1,8 @@
 # 30 s reel — "Replacing floor tiles": old vs new (owner request 2026-10-29)
 
+**Length now ~1:30 (owner, 2026-10-29): 90 s version, 16 scenes, built by
+`free-build/build_tiles_photo.py` — scene list and narration live in its LINES.**
+
 Owner note: show the OLD tiles and the NEW ones with a very smooth finish.
 NEW tiles = black tiles that look like polished black marble (deep black, fine white/grey
 veining, mirror-smooth glossy surface) — owner, 2026-10-29.

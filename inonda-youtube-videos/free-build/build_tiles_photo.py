@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""30 s tile reel "old tiles vs new black marble-look tiles" from free photo-realistic stills.
+"""90 s tile reel "old tiles vs new black marble-look tiles" from free photo-realistic stills.
 
 Owner rules (2026-10-29): real-looking footage only (no drawings), camera always handheld at chest
 height and level, free sources only, no prices or budgets. The stills come from the free AI Horde
@@ -7,7 +7,7 @@ network (anonymous), and each one gets a slow handheld-phone camera move with na
 Voice: Kokoro am_michael (speed 0.90); Greek subtitles; silent bilingual end card.
 
 Usage: python3 build_tiles_photo.py STILLS_DIR OUT_DIR
-STILLS_DIR holds old1, old2, work1, work2 and after (.webp/.png/.jpg).
+STILLS_DIR holds one image per still name used in LINES (.webp/.png/.jpg).
 """
 import glob, os, subprocess, sys
 
@@ -18,16 +18,26 @@ from PIL import Image, ImageDraw, ImageFont
 from build_tiles_preview import (ACCENT, END_SECS, FONT_B, FPS, H, KOKORO_DIR, NAVY, W, end_card,
                                  text_center, wrap)
 
-SHOTS_SECS = 24.0  # picture part; the end card adds END_SECS -> 30 s
+SHOTS_SECS = 84.0  # picture part; the end card adds END_SECS -> 90 s (owner, 2026-10-29)
 OVERSIZE = 1.18    # room for the camera to move without showing edges
 
 # (still, spoken English, Greek subtitle, on-screen label, camera move: zoom from, zoom to, slide x, slide y)
 LINES = [
     ("old1", "Cracked, tired floor tiles?", "Σπασμένα, κουρασμένα πλακάκια δαπέδου;", "BEFORE · ΠΡΙΝ", 1.00, 1.10, 0.0, 0.0),
     ("old2", "Old floors trap dirt and look worn.", "Τα παλιά δάπεδα κρατούν βρωμιά και δείχνουν φθαρμένα.", "BEFORE · ΠΡΙΝ", 1.04, 1.04, -0.6, 0.0),
-    ("work1", "We remove them cleanly.", "Τα αφαιρούμε καθαρά.", "", 1.00, 1.08, 0.0, 0.2),
-    ("work2", "Then we lay new tiles, perfectly level,", "Μετά στρώνουμε νέα πλακάκια, απόλυτα αλφαδιασμένα,", "", 1.06, 1.00, 0.0, 0.0),
-    ("after", "with a smooth, easy-to-clean finish.", "με λείο φινίρισμα που καθαρίζει εύκολα.", "AFTER · ΜΕΤΑ", 1.03, 1.03, 0.7, 0.0),
+    ("old3", "Cracks let water and dirt get under the tiles.", "Οι ρωγμές αφήνουν νερό και βρωμιά να μπαίνουν κάτω από τα πλακάκια.", "BEFORE · ΠΡΙΝ", 1.00, 1.08, 0.3, 0.2),
+    ("measure", "First, we check the room and measure everything.", "Πρώτα ελέγχουμε τον χώρο και μετράμε τα πάντα.", "", 1.06, 1.00, 0.0, 0.0),
+    ("protect", "We protect doors and furniture from dust.", "Προστατεύουμε πόρτες και έπιπλα από τη σκόνη.", "", 1.03, 1.03, 0.6, 0.0),
+    ("work1", "Then we remove the old tiles cleanly.", "Μετά αφαιρούμε τα παλιά πλακάκια καθαρά.", "", 1.00, 1.08, 0.0, 0.2),
+    ("debris", "All the rubble is bagged and taken away.", "Όλα τα μπάζα μπαίνουν σε σάκους και απομακρύνονται.", "", 1.04, 1.04, -0.5, 0.0),
+    ("screed", "We make sure the base is flat and level.", "Βεβαιωνόμαστε ότι η βάση είναι επίπεδη και αλφαδιασμένη.", "", 1.00, 1.07, 0.0, 0.3),
+    ("adhesive", "Adhesive goes on evenly with a notched trowel.", "Η κόλλα απλώνεται ομοιόμορφα με οδοντωτή σπάτουλα.", "", 1.05, 1.00, 0.3, 0.0),
+    ("work2", "Then we lay the new tiles,", "Μετά στρώνουμε τα νέα πλακάκια,", "", 1.00, 1.07, 0.0, 0.0),
+    ("spacers", "with spacers and a level on every row.", "με σφηνάκια και αλφάδι σε κάθε σειρά.", "", 1.03, 1.03, -0.6, 0.0),
+    ("grout", "Fine grout fills every joint.", "Λεπτός αρμόστοκος γεμίζει κάθε αρμό.", "", 1.00, 1.08, 0.2, 0.2),
+    ("clean", "Then everything is cleaned and polished.", "Μετά όλα καθαρίζονται και γυαλίζονται.", "", 1.05, 1.00, 0.0, 0.0),
+    ("after", "A smooth, easy-to-clean finish.", "Λείο φινίρισμα που καθαρίζει εύκολα.", "AFTER · ΜΕΤΑ", 1.03, 1.03, 0.7, 0.0),
+    ("after3", "Black marble look, made to last.", "Όψη μαύρου μαρμάρου, φτιαγμένη να διαρκεί.", "AFTER · ΜΕΤΑ", 1.00, 1.08, -0.4, 0.0),
     ("after", "Feel the difference.", "Νιώστε τη διαφορά.", "AFTER · ΜΕΤΑ", 1.03, 1.12, 0.5, 0.3),
 ]
 
@@ -92,7 +102,7 @@ def main(stills_dir, out_dir):
     f_sub, f_lab = ImageFont.truetype(FONT_B, 50), ImageFont.truetype(FONT_B, 54)
     n = int(round(total * FPS))
     jx, jy, jr = shake(n, 1, 9), shake(n, 2, 7), shake(n, 3, 0.35)
-    out = os.path.join(out_dir, "Inonda_Tiles_BlackMarble_PREVIEW.mp4")
+    out = os.path.join(out_dir, "Inonda_Tiles_BlackMarble_90s_PREVIEW.mp4")
     ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
                            "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", wav, "-c:v", "libx264",
                            "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-c:a", "aac",
