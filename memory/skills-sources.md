@@ -31,3 +31,6 @@
 | claude-x-jev (fast cheap decision model Jev for sort/gate/score/verify; needs OpenRouter key + spends credits; PreToolUse gate hook NOT wired) | https://github.com/charlesdove977/claude-x-jev |
 | find-skills (discover/suggest skills via skills.sh and `npx skills find`; installs need owner yes) | https://github.com/vercel-labs/skills (commit 92a9a34) |
 | hyperframes, hyperframes-cli, hyperframes-registry, media-use, remotion-to-hyperframes, slideshow, hyperframes-figma (renamed from `figma`); HTML-to-video, paid HeyGen features need owner yes; bundled scripts not run | https://github.com/heygen-com/hyperframes (commit 838f878, Apache-2.0) |
+| better-icons (Iconify search; CLI `npm install -g better-icons` NOT installed — blocked; icons fetched from api.iconify.design instead) | https://github.com/better-auth/better-icons (commit 033316e, MIT) |
+| text-to-lottie | https://github.com/diffusionstudio/lottie (commit 3c72912, MIT) |
+| interior-design-expert | https://github.com/curiositech/some_claude_skills (commit f498252, MIT) |

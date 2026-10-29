@@ -299,6 +299,15 @@ Format: date · what was asked · what was done / status.
     (no license), baoyu-infographic (needs image backend; dataink covers it), eachlabs/muapi (paid APIs),
     mirror copies. Waiting on owner's yes.
 
+53. **2026-10-29 · "yeah" (install the 3 design skills + make the Instagram test post).** → Installed
+    `better-icons`, `text-to-lottie`, `interior-design-expert` (MIT, licenses kept). The global
+    `npm install -g better-icons` CLI was blocked by this environment's permission check, so icons are
+    fetched straight from the free Iconify API. Test post made: `design/instagram-tile-offer/`
+    (post 1080×1080 + story 1080×1920, builder `build_post.py`, brand navy #16232b + accent #4FC3F7).
+    Free AI photo (Pollinations 402), Openverse, Wikimedia (429) and Unsplash (email unconfirmed) all
+    unavailable, so the background is a drawn tile pattern; run with `--photo job.jpg` to use a real
+    job photo. Offer text = "Free inspection & written quote" (real). Cost €0.
+
 ## Open items waiting on the owner
 - claude-x-jev (item 36): decide whether to set OPENROUTER_API_KEY + enable the Jev gate hook (spends credits per Bash call).
 - Websites (item 32): on the PC, follow `tools/wasmer/README.md` (install Wasmer CLI,
@@ -318,4 +327,4 @@ Format: date · what was asked · what was done / status.
 - Real job details for videos 17 and 20 (scripts and narration).
 - Fill `[ADD REAL PRICE]`, `[ADD REAL DURATION]`, `[ADD PHONE/WHATSAPP]` placeholders in scripts.
 - Video skills (item 51): say yes/no to installing iart-ai short-form + captions and the ffmpeg skill; approve the free 30 s floor-tiles test.
-- Design skills (item 52): yes/no to better-icons, text-to-lottie, interior-design-expert; approve the free Instagram test post.
+- Instagram post (item 53): send a real floor-tiling job photo and any price/discount to put on it; confirm the Unsplash account email to unlock free stock photos.
