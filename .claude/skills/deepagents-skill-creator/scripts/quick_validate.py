@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 """Quick validation script for skills - minimal version.
 
-For deepagents CLI, skills are located at:
-$DEEPAGENTS_HOME/<agent>/skills/<skill-name>/
+For Claude Code, skills are located at .claude/skills/<skill-name>/ (project)
+or ~/.claude/skills/<skill-name>/ (personal).
 
 Example:
-```python
-python quick_validate.py "${DEEPAGENTS_HOME:-$HOME/.deepagents}/agent/skills/my-skill"
-```
+    python3 quick_validate.py .claude/skills/my-skill
 """
 
 import re
@@ -59,6 +57,11 @@ def validate_skill(skill_path):
         "compatibility",
         "allowed-tools",
         "metadata",
+        # Claude Code extensions
+        "argument-hint",
+        "disable-model-invocation",
+        "user-invocable",
+        "model",
     }
 
     # Check for unexpected properties (excluding nested keys under metadata)
@@ -118,6 +121,8 @@ def validate_skill(skill_path):
     if not isinstance(description, str):
         return False, f"Description must be a string, got {type(description).__name__}"
     description = description.strip()
+    if description.startswith("TODO"):
+        return False, "Description is still the TODO placeholder from init_skill.py; write the real one"
     if description:
         # Check for angle brackets
         if "<" in description or ">" in description:

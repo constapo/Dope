@@ -9,8 +9,9 @@ Examples:
  init_skill.py my-api-helper --path skills/private
  init_skill.py custom-skill --path /custom/location
 
-For deepagents CLI:
- init_skill.py my-skill --path "${DEEPAGENTS_HOME:-$HOME/.deepagents}/agent/skills"
+For Claude Code:
+ init_skill.py my-skill --path .claude/skills        # project skill
+ init_skill.py my-skill --path ~/.claude/skills      # personal skill
 """
 
 import sys
@@ -20,7 +21,7 @@ MAX_SKILL_NAME_LENGTH = 64
 
 SKILL_TEMPLATE = """---
 name: {skill_name}
-description: [TODO: Complete and informative explanation of what the skill does and when to use it. Include WHEN to use this skill - specific scenarios, file types, or tasks that trigger it.]
+description: "TODO: Complete and informative explanation of what the skill does and when to use it. Include WHEN to use this skill - specific scenarios, file types, or tasks that trigger it."
 ---
 
 # {skill_title}
@@ -336,9 +337,9 @@ def main():
         print(" init_skill.py my-new-skill --path skills/public")
         print(" init_skill.py my-api-helper --path skills/private")
         print(" init_skill.py custom-skill --path /custom/location")
-        print("\nFor deepagents CLI:")
-        skills_dir = "${DEEPAGENTS_HOME:-$HOME/.deepagents}/agent/skills"
-        print(f' init_skill.py my-skill --path "{skills_dir}"')
+        print("\nFor Claude Code:")
+        print(" init_skill.py my-skill --path .claude/skills    # project skill")
+        print(" init_skill.py my-skill --path ~/.claude/skills  # personal skill")
         sys.exit(1)
 
     skill_name = sys.argv[1]

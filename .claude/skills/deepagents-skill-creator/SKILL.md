@@ -2,37 +2,31 @@
 name: deepagents-skill-creator
 description: "Guide for creating effective skills that extend agent capabilities with specialized knowledge, workflows, or tool integrations. Use this skill when the user asks to: (1) create a new skill, (2) make a skill, (3) build a skill, (4) set up a skill, (5) initialize a skill, (6) scaffold a skill, (7) update or modify an existing skill, (8) validate a skill, (9) learn about skill structure, (10) understand how skills work, or (11) get guidance on skill design patterns. Trigger on phrases like \"create a skill\", \"new skill\", \"make a skill\", \"skill for X\", \"how do I create a skill\", or \"help me build a skill\"."
 license: MIT
-compatibility: designed for deepagents-code
 ---
 
 # Skill Creator
 
-### Skill Location for Deep Agents Code
+Adapted for Claude Code from langchain-ai/deepagents (MIT, see LICENSE).
 
-Deep Agents Code loads skills from five sources, listed here from lowest to highest precedence:
+### Skill Locations for Claude Code
 
-| # | Directory | Scope | Notes |
-|---|-----------|-------|-------|
-| 0 | `<package>/built_in_skills/` | Built-in | Ships with Deep Agents Code |
-| 1 | `$DEEPAGENTS_HOME/<agent>/skills/` | User (deepagents alias) | Default for `dcode skills create` |
-| 2 | `~/.agents/skills/` | User | Shared across agent tools |
-| 3 | `.deepagents/skills/` | Project (deepagents alias) | Default for `dcode skills create --project` |
-| 4 | `.agents/skills/` | Project | Shared across agent tools |
+| Directory | Scope | Notes |
+|-----------|-------|-------|
+| `.claude/skills/<skill-name>/` | Project | Committed with the repo, shared with everyone who works on it |
+| `~/.claude/skills/<skill-name>/` | Personal | Available in all your projects (does not persist in a cloud session) |
+| Plugin `skills/` folder | Plugin | Ships with an installed plugin; namespaced as `plugin:skill` |
 
-`<agent>` is the agent configuration name (default: `agent`). When two directories contain a skill with the same name, the higher-precedence version wins — project skills override user skills, and any user or project skill overrides built-in skills.
+The folder name must match the `name` field in SKILL.md. Claude Code picks up new and edited skills in the running session; if one doesn't appear, start a new session. Skills are also callable as `/skill-name`.
 
-Example directory layout:
+Example layout:
 
 ```
-$DEEPAGENTS_HOME/agent/skills/     # user skills (lowest precedence)
+<project-root>/.claude/skills/
 ├── skill-name-1/
 │   └── SKILL.md
-└── ...
-
-<project-root>/.deepagents/skills/   # project skills (higher precedence)
-├── skill-name-2/
-│   └── SKILL.md
-└── ...
+└── skill-name-2/
+    ├── SKILL.md
+    └── scripts/
 ```
 
 ## Core Principles
@@ -284,14 +278,14 @@ Usage:
 scripts/init_skill.py <skill-name> --path <output-directory>
 ```
 
-For Deep Agents Code, use any of the skill directories listed in "Skill Location for Deep Agents Code" above:
+For Claude Code, use one of the directories listed in "Skill Locations for Claude Code" above. Run the script from this skill's base directory (shown when the skill loads):
 
 ```bash
-# User skills (default)
-scripts/init_skill.py <skill-name> --path "${DEEPAGENTS_HOME:-$HOME/.deepagents}/agent/skills"
+# Project skills (default for this repo)
+python3 <skill-base-dir>/scripts/init_skill.py <skill-name> --path .claude/skills
 
-# Project skills
-scripts/init_skill.py <skill-name> --path .deepagents/skills
+# Personal skills
+python3 <skill-base-dir>/scripts/init_skill.py <skill-name> --path ~/.claude/skills
 ```
 
 The script:
@@ -303,19 +297,9 @@ The script:
 
 After initialization, customize or remove the generated SKILL.md and example files as needed.
 
-#### Option B: `dcode skills create` (quick start)
+#### Option B: Write SKILL.md directly (quick start)
 
-The built-in CLI command creates a minimal skill with just a `SKILL.md` template — no resource directories. Use this for simple skills that only need instructions and no bundled scripts, references, or assets.
-
-```bash
-# Create in user skills directory
-dcode skills create <skill-name>
-
-# Create in project skills directory
-dcode skills create <skill-name> --project
-```
-
-Use `init_skill.py` when the skill will include bundled resources (`scripts/`, `references/`, `assets/`). Use `dcode skills create` for a quick, minimal starting point.
+For a simple skill that only needs instructions (no scripts, references, or assets), create `<skills-dir>/<skill-name>/SKILL.md` with the Write tool instead of running the script.
 
 ### Step 4: Edit the Skill
 
@@ -347,7 +331,15 @@ Write the YAML frontmatter with `name` and `description`:
   - Include all "when to use" information here - Not in the body. The body is only loaded after triggering, so "When to Use This Skill" sections in the body are not helpful to the agent.
   - Example description for a `docx` skill: "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. Use when working with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks"
 
-The only other allowed fields in YAML frontmatter are optional properties per the Agent Skills spec: `license`, `compatibility`, `allowed-tools`, and `metadata`. Do not include any fields beyond these.
+Optional fields from the Agent Skills spec: `license`, `compatibility`, `allowed-tools`, `metadata`. Claude Code also understands:
+
+- `argument-hint`: placeholder shown when the skill is run as `/skill-name <args>`
+- `disable-model-invocation: true`: only the user can run it (via `/skill-name`); Claude won't trigger it on its own
+- `user-invocable: false`: hide it from the `/` menu so only Claude triggers it
+- `model`: run the skill on a specific model
+- `allowed-tools`: tools the skill may use without asking permission, e.g. `Bash(python3:*) Read`
+
+Don't add other fields.
 
 ##### Body
 
@@ -358,7 +350,7 @@ Write instructions for using the skill and its bundled resources.
 Once development of the skill is complete, validate it to ensure it meets all requirements:
 
 ```bash
-scripts/quick_validate.py <path/to/skill-folder>
+python3 <skill-base-dir>/scripts/quick_validate.py <path/to/skill-folder>
 ```
 
 The validation script checks:
@@ -367,7 +359,7 @@ The validation script checks:
 - Skill naming conventions (Unicode lowercase alphanumeric with hyphens, max 64 characters)
 - Description completeness (no angle brackets, max 1024 characters)
 - Required fields: `name` and `description`
-- Allowed frontmatter properties only: `name`, `description`, `license`, `compatibility`, `allowed-tools`, `metadata`
+- Allowed frontmatter properties only: `name`, `description`, `license`, `compatibility`, `allowed-tools`, `metadata`, plus the Claude Code fields listed above
 
 If validation fails, fix the reported errors and run the validation command again.
 
