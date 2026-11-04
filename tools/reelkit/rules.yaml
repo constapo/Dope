@@ -1,0 +1,69 @@
+# House rules checked before anything is downloaded, voiced or rendered.
+# Source: .specify/memory/constitution.md (Inonda owner rules, 2026-10-29).
+# Matching ignores case and Greek accents. Add a new owner rule as one more pattern below.
+#
+# applies_to: text = title, speech, greek, label; shot = generate descriptions
+groups:
+  money:
+    principle: I
+    message: price mentioned
+    applies_to: [text, shot]
+    patterns:
+      - '[€$£]'
+      - '\beur(o|os)?\b'
+      - '\bευρω\b'
+      - '\b(from|under|only|just|starting at|as low as)\s+\d'
+      - '\d+\s*(per|/)\s*(m²|m2|sqm|square)'
+  budget:
+    principle: I
+    message: budget or cost talk
+    applies_to: [text, shot]
+    patterns:
+      - '\bbudget\w*'
+      - '\bafford\w*'
+      - '\bcheap\w*'
+      - '\bcost(s|ing|ly)?\b'
+      - '\bpric(e|es|ed|ing)\b'
+      - '\bfortune\b'
+      - '\bsave\b.*\bspend\b'
+      - '\bbargain\w*'
+      - '\bdiscount\w*'
+      - '\bπροϋπολογισμ\w*'
+      - '\bπρουπολογισμ\w*'
+      - '\bφθην\w*'
+      - '\bφτην\w*'
+      - '\bκοστο\w*'
+      - '\bκοστιζ\w*'
+      - '\bτιμη\b'
+      - '\bτιμες\b'
+      - '\bεκπτωσ\w*'
+  placeholder:
+    principle: VI
+    message: placeholder left in
+    applies_to: [text, shot]
+    patterns:
+      - '\[add\b'
+      - '\btodo\b'
+      - '\[\.\.\.\]'
+      - '\bxxx\b'
+  forbidden_shot:
+    principle: II/III
+    message: forbidden shot (drawn style or wrong camera angle)
+    applies_to: [shot]
+    patterns:
+      - '\bdraw(ing|n)\b'
+      - '\bcartoon\w*'
+      - '\banimat(ion|ed)\b'
+      - '\billustrat(ion|ed)\b'
+      - '\bsketch\w*'
+      - '\btop[- ]down\b'
+      - '\boverhead\b'
+      - '\baerial\b'
+      - '\bdrone\b'
+      - '\bcrane\b'
+      - '\bceiling view\b'
+      - '\bfrom the ceiling\b'
+      - "\\bbird'?s[- ]eye\\b"
+      - '\bfloor[- ]level\b'
+      - "\\bworm'?s[- ]eye\\b"
+      - '\blow angle\b'

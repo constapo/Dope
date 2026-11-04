@@ -1,0 +1,60 @@
+# Video 01 reel: bathroom renovation, 90 s vertical, English voice + Greek subtitles.
+# Converted from inonda-youtube-videos/free-build/build_reel_v01_george.py (same 15 lines and
+# Greek subtitles). Pictures were Pollinations stills (now asks for payment); they are AI Horde
+# `generate:` shots here. The old shot "overhead view of an old shower tray" broke Principle III
+# and is rewritten as an eye-level shot.
+slug: v01-bathroom-reel
+title: "Bathroom renovation in Cyprus, old to new"
+format: reel
+target_seconds: 90
+lines:
+  - speech: "This bathroom in Cyprus had cracked tiles, a damp ceiling and a shower that never drained properly."
+    greek: "Αυτό το μπάνιο στην Κύπρο είχε σπασμένα πλακάκια, υγρασία στο ταβάνι και ντους που δεν άδειαζε σωστά."
+    label: "BEFORE · ΠΡΙΝ"
+    picture: {generate: "close-up of a cracked chipped beige 1990s ceramic wall tile beside a shower, grout stained dark"}
+  - speech: "Sound familiar?"
+    greek: "Σας φαίνεται γνώριμο;"
+    label: "BEFORE · ΠΡΙΝ"
+    picture: {generate: "old shower tray with murky water around a corroded drain grate, seen standing at the shower door"}
+    min_seconds: 2.5
+  - speech: "We are Inonda Limited."
+    greek: "Είμαστε η Inonda Ltd."
+    picture: {generate: "street of white-rendered apartment blocks in Cyprus in morning sun, solar water heaters on flat roofs, seen from the pavement"}
+    min_seconds: 2.5
+  - speech: "We repair, renovate and maintain homes across Cyprus."
+    greek: "Επισκευάζουμε, ανακαινίζουμε και συντηρούμε σπίτια σε όλη την Κύπρο."
+    picture: {generate: "renovated bathroom, light-grey large porcelain tiles, walk-in glass shower, floating vanity, warm LED mirror"}
+  - speech: "Every job is led by a technician with up to twenty-two years of experience."
+    greek: "Κάθε δουλειά την αναλαμβάνει τεχνικός με έως και 22 χρόνια εμπειρίας."
+    picture: {generate: "doorway view into an old dated bathroom with beige tiles and worn fittings"}
+  - speech: "Step one is the survey, before any demolition. We check the walls for damp."
+    greek: "Πρώτο βήμα η αυτοψία, πριν από κάθε κατεδάφιση. Ελέγχουμε τους τοίχους για υγρασία."
+    picture: {generate: "hand pressing a moisture meter against a stained bathroom wall"}
+  - speech: "This is where surprises appear: hidden leaks and old repairs. That is normal."
+    greek: "Εδώ εμφανίζονται οι εκπλήξεις: κρυφές διαρροές και παλιές επισκευές. Είναι φυσιολογικό."
+    picture: {generate: "old galvanised pipes inside an opened bathroom wall cavity"}
+  - speech: "A good contractor shows you photos straight away, not a surprise bill later."
+    greek: "Ένας σωστός εργολάβος σας δείχνει αμέσως φωτογραφίες, όχι έναν απρόσμενο λογαριασμό αργότερα."
+    picture: {generate: "bathroom being stripped, old wall tiles removed, rubble and dust in the light"}
+  - speech: "You never see the waterproofing once the tiles are on, and that is exactly why people skip it."
+    greek: "Τη στεγανοποίηση δεν τη βλέπετε όταν μπουν τα πλακάκια, και γι' αυτό ακριβώς πολλοί την παραλείπουν."
+    picture: {generate: "grey waterproof membrane freshly rolled on a shower floor"}
+  - speech: "When it fails, the water goes into the wall, or through to the neighbour below."
+    greek: "Όταν αποτύχει, το νερό πάει μέσα στον τοίχο ή στον γείτονα από κάτω."
+    picture: {generate: "brown water stain spreading on a white wall below a bathroom"}
+  - speech: "The tiles still look fine. The damage does not."
+    greek: "Τα πλακάκια φαίνονται μια χαρά. Η ζημιά όχι."
+    picture: {reuse: 10}
+  - speech: "It is the most expensive shortcut in any bathroom."
+    greek: "Είναι η πιο ακριβή παράλειψη σε κάθε μπάνιο."
+    picture: {generate: "reinforcing waterproof tape pressed into a shower wall corner"}
+  - speech: "In the corners we use flexible sealant, not grout, because rigid grout will crack."
+    greek: "Στις γωνίες βάζουμε ελαστική σιλικόνη, όχι αρμόστοκο, γιατί ο άκαμπτος αρμός ραγίζει."
+    picture: {generate: "smooth white silicone sealant bead along a tiled shower corner"}
+  - speech: "We visit, listen to what you want, and give you a clear written quote before we begin."
+    greek: "Ερχόμαστε, ακούμε τι θέλετε και σας δίνουμε σαφή γραπτή προσφορά πριν ξεκινήσουμε."
+    picture: {generate: "new chrome tap running clear water over a white basin"}
+  - speech: "Bathroom, kitchen, damp wall or leaking terrace? We would love to hear from you."
+    greek: "Μπάνιο, κουζίνα, τοίχος με υγρασία ή ταράτσα που στάζει; Θα χαρούμε να σας ακούσουμε."
+    label: "AFTER · ΜΕΤΑ"
+    picture: {generate: "bright renovated bathroom seen from the doorway, light-grey tiles, glass shower"}

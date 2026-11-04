@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Run reelkit from anywhere in the repo: bin/reelkit build inonda-youtube-videos/reels/<slug>.yaml
+PYTHONPATH="$(cd "$(dirname "$0")/../tools" && pwd)${PYTHONPATH:+:$PYTHONPATH}" exec python3 -m reelkit "$@"

@@ -1,0 +1,8 @@
+# reelkit: free reel/video builder. Free and open-source dependencies only (constitution, Principle IV).
+pillow
+numpy
+pyyaml
+jsonschema
+kokoro-onnx>=0.6,<0.7
+soundfile
+pytest

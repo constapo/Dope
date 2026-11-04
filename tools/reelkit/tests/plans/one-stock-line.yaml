@@ -1,0 +1,10 @@
+slug: one-stock-line
+title: "Test reel: one stock clip"
+format: reel
+end_card: {seconds: 2}
+lines:
+  - speech: "Every job is different."
+    greek: "Κάθε δουλειά είναι διαφορετική."
+    picture:
+      stock: https://assets.mixkit.co/example/tiles.jpg
+      licence: mixkit-free

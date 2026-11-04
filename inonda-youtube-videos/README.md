@@ -6,6 +6,11 @@
 
 Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [ADD ...] placeholders are not voiced. All price placeholders were removed on 2026-10-29 (no-prices rule). Greek text needs native review before publishing.
 
+## Making reels and videos (reelkit, from 2026-11-04)
+New reels are written as plans in `reels/` and built with `bin/reelkit` (free sources only, house
+rules checked automatically). How to use it: `tools/reelkit/README.md`. Spec and plan:
+`specs/001-free-reel-builder/`. The old one-off builders in `free-build/` are kept for reference.
+
 ## House rules for every Inonda video (owner, 2026-10-29)
 - **No prices, ever.** The company does not work with fixed prices. Never show, say or caption a
   price, price range, cost figure, "from €…", "under €…" or price placeholder in any video, reel,

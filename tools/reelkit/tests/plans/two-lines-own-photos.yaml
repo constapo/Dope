@@ -1,0 +1,14 @@
+slug: two-lines-own-photos
+title: "Test reel: old tiles"
+format: reel
+end_card: {seconds: 2}
+lines:
+  - speech: "Cracked, tired floor tiles?"
+    greek: "Σπασμένα, κουρασμένα πλακάκια δαπέδου;"
+    label: "BEFORE · ΠΡΙΝ"
+    picture: {file: ../stills/portrait.jpg}
+    move: {zoom_from: 1.00, zoom_to: 1.08}
+  - speech: "We look at the job properly and give a clear written quote."
+    greek: "Ελέγχουμε τη δουλειά σωστά και δίνουμε σαφή γραπτή προσφορά."
+    picture: {file: ../stills/wide.jpg}
+    move: {slide_x: 0.5, shake: strong}

@@ -1,0 +1,8 @@
+slug: one-generated-line
+title: "Test reel: one generated still"
+format: reel
+end_card: {seconds: 2}
+lines:
+  - speech: "Cracked tiles let water get underneath."
+    greek: "Τα ραγισμένα πλακάκια αφήνουν το νερό να περάσει από κάτω."
+    picture: {generate: "close-up of cracked beige 1990s floor tiles in a Cyprus apartment, natural daylight"}

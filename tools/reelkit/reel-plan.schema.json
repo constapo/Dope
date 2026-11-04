@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inonda.local/reel-plan.schema.json",
+  "title": "Inonda reel plan",
+  "type": "object",
+  "required": ["slug", "title", "format", "lines"],
+  "additionalProperties": false,
+  "properties": {
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "title": {"type": "string", "minLength": 1},
+    "format": {"enum": ["reel", "video"]},
+    "target_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "engine": {"enum": ["kokoro", "edge"], "default": "kokoro"},
+        "name": {"type": "string", "default": "am_michael"},
+        "speed": {"type": "number", "minimum": 0.5, "maximum": 1.5, "default": 0.9}
+      }
+    },
+    "end_card": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "seconds": {"type": "number", "minimum": 2, "maximum": 15, "default": 6},
+        "variant": {"enum": ["inonda-bilingual"], "default": "inonda-bilingual"}
+      }
+    },
+    "lines": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/line"}}
+  },
+  "$defs": {
+    "line": {
+      "type": "object",
+      "required": ["speech", "greek", "picture"],
+      "additionalProperties": false,
+      "properties": {
+        "speech": {"type": "string", "minLength": 1},
+        "greek": {"type": "string", "minLength": 1},
+        "label": {"type": "string"},
+        "picture": {"$ref": "#/$defs/picture"},
+        "move": {"$ref": "#/$defs/move"},
+        "min_seconds": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "picture": {
+      "oneOf": [
+        {
+          "type": "object", "additionalProperties": false, "required": ["file"],
+          "properties": {
+            "file": {"type": "string"},
+            "ai_generated": {"type": "boolean", "default": false}
+          }
+        },
+        {
+          "type": "object", "additionalProperties": false, "required": ["stock", "licence"],
+          "properties": {
+            "stock": {"type": "string", "format": "uri"},
+            "licence": {"enum": ["mixkit-free", "pexels", "pixabay", "coverr", "cc0", "cc-by"]},
+            "credit": {"type": "string"}
+          },
+          "if": {"properties": {"licence": {"const": "cc-by"}}},
+          "then": {"required": ["credit"]}
+        },
+        {
+          "type": "object", "additionalProperties": false, "required": ["generate"],
+          "properties": {"generate": {"type": "string", "minLength": 10}}
+        },
+        {
+          "type": "object", "additionalProperties": false, "required": ["reuse"],
+          "properties": {"reuse": {"type": "integer", "minimum": 1}}
+        }
+      ]
+    },
+    "move": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "zoom_from": {"type": "number", "minimum": 1.0, "maximum": 1.15, "default": 1.0},
+        "zoom_to": {"type": "number", "minimum": 1.0, "maximum": 1.15, "default": 1.07},
+        "slide_x": {"type": "number", "minimum": -1, "maximum": 1, "default": 0},
+        "slide_y": {"type": "number", "minimum": -1, "maximum": 1, "default": 0},
+        "shake": {"enum": ["still", "normal", "strong"], "default": "normal"}
+      }
+    }
+  }
+}

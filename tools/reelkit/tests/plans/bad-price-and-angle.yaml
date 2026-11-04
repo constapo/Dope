@@ -1,0 +1,10 @@
+slug: bad-price-and-angle
+title: "Bad plan for tests"
+format: reel
+lines:
+  - speech: "New floor tiles for your home."
+    greek: "Νέα πλακάκια από €500 για το σπίτι σας."
+    picture: {file: ../stills/portrait.jpg}
+  - speech: "Here is the finished bathroom."
+    greek: "Εδώ είναι το τελειωμένο μπάνιο."
+    picture: {generate: "overhead view of a bathroom floor with new grey tiles"}
