@@ -138,7 +138,7 @@ def end_card():
             ("Facebook: inondalimited   Instagram: @inondaltd", 32, "white", FONT_R),
             ("TikTok: @inonda26   YouTube: @InondaLTD", 32, "white", FONT_R),
             ("inonda.site  |  inonda.org  |  inonda.homes", 32, "white", FONT_R)]
-    y = 230
+    y = 330  # leaves the top-left corner free for the logo
     for s, sz, c, f in rows:
         if s:
             text_center(d, y, s, ImageFont.truetype(f, sz), c, 0)

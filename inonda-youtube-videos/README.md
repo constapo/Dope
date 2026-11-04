@@ -7,6 +7,12 @@
 Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [ADD ...] placeholders are not voiced. All price placeholders were removed on 2026-10-29 (no-prices rule). Greek text needs native review before publishing.
 
 ## House rules for every Inonda video (owner, 2026-10-29)
+- **Inonda LTD logo on everything** (owner, 2026-11-04): every video (every frame, end card
+  included) and every picture carries the Inonda LTD logo with a transparent background in the
+  top-left corner. Files: `brand/inonda-logo.png` (original, from inonda.homes) and
+  `brand/inonda-logo-overlay.png` (2x, thin white outline so it reads on dark footage — use this one
+  on videos/pictures). Video size: 300 px wide at 1080x1920, placed 36 px from the top and left;
+  labels and text start below it.
 - **No prices, ever.** The company does not work with fixed prices. Never show, say or caption a
   price, price range, cost figure, "from €…", "under €…" or price placeholder in any video, reel,
   short, post, thumbnail, title or description.

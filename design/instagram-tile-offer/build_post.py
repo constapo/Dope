@@ -46,7 +46,7 @@ def icon(out, name, color="white"):
     return data_uri(path, "image/svg+xml")
 
 
-def html(w, h, photo, ic):
+def html(w, h, photo, ic, logo):
     story = h > w
     head = 92 if story else 74
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
@@ -55,9 +55,7 @@ body{{width:{w}px;height:{h}px;font-family:'DejaVu Sans',sans-serif;color:#fff;b
 .photo{{position:absolute;inset:0;{photo}}}
 .shade{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,35,43,.15) 0%,
   rgba(22,35,43,.25) {38 if story else 30}%,rgba(22,35,43,.93) {62 if story else 58}%,{NAVY} 100%)}}
-.brand{{position:absolute;top:{70 if story else 48}px;left:56px;font-weight:700;font-size:34px;letter-spacing:2px;
-  background:{NAVY}cc;padding:10px 20px;border-radius:10px}}
-.brand span{{color:{ACCENT}}}
+.brand{{position:absolute;top:{36 if story else 28}px;left:{36 if story else 28}px;width:{300 if story else 230}px}}
 .box{{position:absolute;left:56px;right:56px;bottom:{90 if story else 48}px}}
 h1{{font-size:{head}px;line-height:1.02;font-weight:800}}
 h2{{font-size:{head * .56:.0f}px;color:{ACCENT};margin:10px 0 {26 if story else 18}px;font-weight:700}}
@@ -73,7 +71,7 @@ h2{{font-size:{head * .56:.0f}px;color:{ACCENT};margin:10px 0 {26 if story else 
 .apps img{{width:{34 if story else 30}px}}
 </style></head><body>
 <div class="photo"></div><div class="shade"></div>
-<div class="brand">INONDA <span>LTD</span></div>
+<img class="brand" src="{logo}">
 <div class="box">
   <h1>New floor tiles.<br>Old floor out.</h1>
   <h2>Νέα πλακάκια δαπέδου.</h2>
@@ -95,9 +93,12 @@ def main(out, photo_path=None):
         bg = f"background:url('{data_uri(photo_path, 'image/jpeg')}') center/cover"
     ic = {n: icon(out, n) for n in ICONS}
     ic["check_navy"] = icon(out, "check", NAVY)
+    # Owner rule (2026-11-04): Inonda LTD logo, transparent background, top-left of every picture.
+    logo = data_uri(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",
+                                 "inonda-youtube-videos", "brand", "inonda-logo-overlay.png"), "image/png")
     for w, h, name in [(1080, 1080, "post_1080x1080.png"), (1080, 1920, "story_1080x1920.png")]:
         page = os.path.abspath(os.path.join(out, name.replace(".png", ".html")))
-        open(page, "w", encoding="utf-8").write(html(w, h, bg, ic))
+        open(page, "w", encoding="utf-8").write(html(w, h, bg, ic, logo))
         subprocess.run([CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
                         f"--window-size={w},{h}", f"--screenshot={os.path.abspath(os.path.join(out, name))}",
                         "file://" + page], check=True, capture_output=True)

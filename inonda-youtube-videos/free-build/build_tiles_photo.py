@@ -20,6 +20,20 @@ from build_tiles_preview import (ACCENT, END_SECS, FONT_B, FPS, H, KOKORO_DIR, N
 
 SHOTS_SECS = 84.0  # picture part; the end card adds END_SECS -> 90 s (owner, 2026-10-29)
 OVERSIZE = 1.18    # room for the camera to move without showing edges
+# Owner rule (2026-11-04): Inonda LTD logo, transparent background, top-left of every frame.
+LOGO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "brand", "inonda-logo-overlay.png")
+LOGO_W, LOGO_XY = 300, (36, 36)
+
+
+def logo():
+    im = Image.open(LOGO).convert("RGBA")
+    return im.resize((LOGO_W, round(LOGO_W * im.height / im.width)), Image.LANCZOS)
+
+
+def stamp(fr, mark):
+    """Composite the logo onto an RGB frame, keeping the logo's transparency."""
+    fr.paste(mark, LOGO_XY, mark)
+    return fr
 
 # (still, spoken English, Greek subtitle, on-screen label, camera move: zoom from, zoom to, slide x, slide y)
 LINES = [
@@ -101,7 +115,8 @@ def main(stills_dir, out_dir):
     wav = os.path.join(out_dir, "voice.wav")
     spans, shots_end, total = voice(wav)
     stills = {n: load_still(stills_dir, n) for n in {line[0] for line in LINES}}
-    card = end_card()
+    mark = logo()
+    card = stamp(end_card(), mark)
     f_sub, f_lab = ImageFont.truetype(FONT_B, 50), ImageFont.truetype(FONT_B, 54)
     n = int(round(total * FPS))
     jx, jy, jr = shake(n, 1, 9), shake(n, 2, 7), shake(n, 3, 0.35)
@@ -121,14 +136,14 @@ def main(stills_dir, out_dir):
         fr = frame(stills[name], p, z0, z1, sx, sy, jx[i], jy[i], jr[i])
         d = ImageDraw.Draw(fr)
         if label:
-            d.rounded_rectangle([60, 150, 60 + d.textlength(label, font=f_lab) + 50, 240], 18, fill=NAVY)
-            d.text((85, 160), label, font=f_lab, fill=ACCENT if "AFTER" in label else "white")
+            d.rounded_rectangle([60, 320, 60 + d.textlength(label, font=f_lab) + 50, 410], 18, fill=NAVY)
+            d.text((85, 330), label, font=f_lab, fill=ACCENT if "AFTER" in label else "white")
         if spans[k][0] <= t <= spans[k][1] + 0.3:  # Greek subtitle above the bottom 20 % safe area
             lines = wrap(d, gr, f_sub, W - 140)
             y = int(H * 0.74) - len(lines) * 62
             for ln in lines:
                 text_center(d, y, ln, f_sub, "white"); y += 64
-        ff.stdin.write(fr.tobytes())
+        ff.stdin.write(stamp(fr, mark).tobytes())
     ff.stdin.close(); ff.wait()
     print("wrote", out, f"{total:.1f}s")
 
