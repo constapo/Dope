@@ -17,99 +17,99 @@ lines:
     label: "BEFORE · ΠΡΙΝ"
     picture: {generate: "close-up of cracked, stained beige 1990s ceramic floor tiles in a Cyprus apartment hallway"}
     move: {zoom_from: 1.00, zoom_to: 1.10}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Old floors trap dirt and look worn."                 # old2
     greek: "Τα παλιά δάπεδα κρατούν βρωμιά και δείχνουν φθαρμένα."
     label: "BEFORE · ΠΡΙΝ"
     picture: {generate: "worn dull beige floor tiles with dark dirty grout lines in an older Cyprus living room"}
     move: {zoom_from: 1.04, zoom_to: 1.04, slide_x: -0.6}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Cracks let water and dirt get under the tiles."      # old3
     greek: "Οι ρωγμές αφήνουν νερό και βρωμιά να μπαίνουν κάτω από τα πλακάκια."
     label: "BEFORE · ΠΡΙΝ"
     picture: {generate: "a long crack across an old beige floor tile with dirt in the gap, close-up"}
     move: {zoom_from: 1.00, zoom_to: 1.08, slide_x: 0.3, slide_y: 0.2}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "First, we check the room and measure everything."    # measure
     greek: "Πρώτα ελέγχουμε τον χώρο και μετράμε τα πάντα."
     picture: {generate: "hands holding a yellow tape measure along an old tiled floor next to a wall"}
     move: {zoom_from: 1.06, zoom_to: 1.00}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "We protect doors and furniture from dust."           # protect
     greek: "Προστατεύουμε πόρτες και έπιπλα από τη σκόνη."
     picture: {generate: "doorway and furniture covered with clear protective plastic sheeting and tape in an apartment"}
     move: {zoom_from: 1.03, zoom_to: 1.03, slide_x: 0.6}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Then we remove the old tiles cleanly."               # work1
     greek: "Μετά αφαιρούμε τα παλιά πλακάκια καθαρά."
     picture: {generate: "hands in work gloves lifting broken old beige floor tiles with a chisel"}
     move: {zoom_from: 1.00, zoom_to: 1.08, slide_y: 0.2}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "All the rubble is bagged and taken away."            # debris
     greek: "Όλα τα μπάζα μπαίνουν σε σάκους και απομακρύνονται."
     picture: {generate: "heavy rubble bags filled with broken tile pieces standing in a hallway"}
     move: {zoom_from: 1.04, zoom_to: 1.04, slide_x: -0.5}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "We make sure the base is flat and level."            # screed
     greek: "Βεβαιωνόμαστε ότι η βάση είναι επίπεδη και αλφαδιασμένη."
     picture: {generate: "long spirit level lying on a smooth grey cement screed floor in an empty room"}
     move: {zoom_from: 1.00, zoom_to: 1.07, slide_y: 0.3}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Next, the whole floor gets a waterproofing membrane."   # water1
     greek: "Μετά όλο το δάπεδο παίρνει στεγανωτική μεμβράνη."
     picture: {generate: "grey liquid waterproofing membrane being rolled onto a cement floor with a paint roller"}
     move: {zoom_from: 1.00, zoom_to: 1.07, slide_x: 0.4}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Corners and joints are sealed with reinforcing tape."   # water2
     greek: "Γωνίες και αρμοί σφραγίζονται με ενισχυτική ταινία."
     picture: {generate: "waterproofing reinforcing tape pressed into the corner where the floor meets the wall"}
     move: {zoom_from: 1.05, zoom_to: 1.00, slide_y: 0.2}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Adhesive goes on evenly with a notched trowel."      # adhesive
     greek: "Η κόλλα απλώνεται ομοιόμορφα με οδοντωτή σπάτουλα."
     picture: {generate: "hands spreading grey tile adhesive in even ridges with a notched trowel on a floor"}
     move: {zoom_from: 1.05, zoom_to: 1.00, slide_x: 0.3}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "The tiles go down right over the waterproofing."     # water3
     greek: "Τα πλακάκια μπαίνουν ακριβώς πάνω από τη στεγάνωση."
     picture: {generate: "a large black marble-look tile being placed onto adhesive over a grey waterproofed floor"}
     move: {zoom_from: 1.00, zoom_to: 1.06, slide_x: -0.4}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Then we lay the new tiles,"                          # work2
     greek: "Μετά στρώνουμε τα νέα πλακάκια,"
     picture: {generate: "rows of new large black marble-look floor tiles laid on bare screed, only black tiles"}
     move: {zoom_from: 1.00, zoom_to: 1.07}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "with spacers and a level on every row."              # spacers
     greek: "με σφηνάκια και αλφάδι σε κάθε σειρά."
     picture: {generate: "tile spacers between black marble-look tiles with a spirit level resting on top"}
     move: {zoom_from: 1.03, zoom_to: 1.03, slide_x: -0.6}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Fine grout fills every joint."                       # grout
     greek: "Λεπτός αρμόστοκος γεμίζει κάθε αρμό."
     picture: {generate: "rubber grout float pressing dark grout into the joints between black marble-look tiles"}
     move: {zoom_from: 1.00, zoom_to: 1.08, slide_x: 0.2, slide_y: 0.2}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Then everything is cleaned and polished."            # clean
     greek: "Μετά όλα καθαρίζονται και γυαλίζονται."
     picture: {generate: "damp sponge wiping grout haze off glossy black marble-look floor tiles"}
     move: {zoom_from: 1.05, zoom_to: 1.00}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "A smooth, easy-to-clean finish."                     # after
     greek: "Λείο φινίρισμα που καθαρίζει εύκολα."
     label: "AFTER · ΜΕΤΑ"
     picture: {generate: "finished glossy black marble-look tiled floor in a bright Cyprus living room, daylight from a window"}
     move: {zoom_from: 1.03, zoom_to: 1.03, slide_x: 0.7}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Black marble look, made to last."                    # after3
     greek: "Όψη μαύρου μαρμάρου, φτιαγμένη να διαρκεί."
     label: "AFTER · ΜΕΤΑ"
     picture: {generate: "close-up of polished black marble-look floor tiles with white veins reflecting window light"}
     move: {zoom_from: 1.00, zoom_to: 1.08, slide_x: -0.4}
-    min_seconds: 4.2
+    min_seconds: 4.4
   - speech: "Feel the difference."                                # after (again)
     greek: "Νιώστε τη διαφορά."
     label: "AFTER · ΜΕΤΑ"
     picture: {reuse: 17}
     move: {zoom_from: 1.03, zoom_to: 1.12, slide_x: 0.5, slide_y: 0.3}
-    min_seconds: 4.2
+    min_seconds: 4.4
