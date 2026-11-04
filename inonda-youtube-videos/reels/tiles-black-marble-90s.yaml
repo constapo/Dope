@@ -1,5 +1,5 @@
 # Tile reel "old tiles vs new black marble-look tiles", 90 s vertical.
-# Converted from inonda-youtube-videos/free-build/build_tiles_photo.py (same 19 lines, subtitles,
+# Converted from inonda-youtube-videos/free-build/archive/build_tiles_photo.py (same 19 lines, subtitles,
 # labels and camera moves). Owner rules 2026-10-29: real-looking, handheld at chest height,
 # free sources only, no prices or budgets. The new floor is black marble-look tiles (owner).
 #
@@ -72,12 +72,12 @@ lines:
     min_seconds: 4.4
   - speech: "The tiles go down right over the waterproofing."     # water3
     greek: "Τα πλακάκια μπαίνουν ακριβώς πάνω από τη στεγάνωση."
-    picture: {generate: "a large black marble-look tile being placed onto adhesive over a grey waterproofed floor"}
+    picture: {generate: "close-up of two hands in work gloves pressing a large black marble-look tile onto grey adhesive on a waterproofed floor, only hands and tile in the shot"}
     move: {zoom_from: 1.00, zoom_to: 1.06, slide_x: -0.4}
     min_seconds: 4.4
   - speech: "Then we lay the new tiles,"                          # work2
     greek: "Μετά στρώνουμε τα νέα πλακάκια,"
-    picture: {generate: "rows of new large black marble-look floor tiles laid on bare screed, only black tiles"}
+    picture: {generate: "close-up of rows of new large black marble-look floor tiles laid on bare grey screed, empty room, nobody in the shot, only black tiles"}
     move: {zoom_from: 1.00, zoom_to: 1.07}
     min_seconds: 4.4
   - speech: "with spacers and a level on every row."              # spacers

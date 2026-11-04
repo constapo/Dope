@@ -85,7 +85,7 @@ def cmd_build(args) -> int:
         return NO_VOICE
     clips = voice.voice_lines(p, bdir, engine, log)
     warnings: list[str] = []
-    out, tl = render.render(p, bdir, pictures.picture_files(recs), clips, warnings)
+    out, tl = render.render(p, bdir, pictures.picture_files(recs), clips, warnings, log)
     w = report.length_warning(p, tl["total"])
     if w:
         warnings.append(w)

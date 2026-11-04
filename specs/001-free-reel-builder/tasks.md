@@ -152,7 +152,7 @@ the same 19 lines, subtitles and order as `build_tiles_photo.py`, at 90 s ± 1 s
 - [X] T039 [P] [US4] Convert the `LINES` list of `inonda-youtube-videos/free-build/build_tiles_photo.py` to `inonda-youtube-videos/reels/tiles-black-marble-90s.yaml`: 19 lines with the same speech, Greek, labels and moves (zoom from/to, slide x/y), `format: reel`, `target_seconds: 90`, pictures as `file:` paths into a stills folder the owner supplies (document the folder in a comment) or `generate:` descriptions where no still exists
 - [X] T040 [P] [US4] Convert `inonda-youtube-videos/free-build/build_reel_v01_george.py` (v01 reel with Greek subtitles) to `inonda-youtube-videos/reels/v01-bathroom-reel.yaml`; replace any Pollinations-only pictures with `generate:` lines (AI Horde)
 - [ ] T041 [P] [US4] Convert `inonda-youtube-videos/free-build/build_v01.py` (Video 01, landscape) to `inonda-youtube-videos/reels/v01-bathroom-video.yaml` with `format: video`; lines that need real footage of the owner, jobs or clients are `file:` pictures pointing at a `real-footage/` folder, never generated (Principle V)
-- [ ] T042 [US4] Run `bin/reelkit check` on all three plans and fix any rule problems they reveal; build the tile reel and compare line order, subtitles and length with the old output (90 s ± 1 s)
+- [X] T042 [US4] Run `bin/reelkit check` on all three plans and fix any rule problems they reveal; build the tile reel and compare line order, subtitles and length with the old output (90 s ± 1 s)
 
 **Checkpoint**: all stories done; old scripts are no longer needed.
 
@@ -162,9 +162,9 @@ the same 19 lines, subtitles and order as `build_tiles_photo.py`, at 90 s ± 1 s
 
 - [X] T043 [P] Write `tools/reelkit/README.md`: what it does, install, `setup`, the four commands with examples, plan format summary linking to the schema, free sources and why paid ones are excluded
 - [X] T044 [P] Update `inonda-youtube-videos/README.md`: new reels are made with `reelkit` from plans in `reels/`; link to `tools/reelkit/README.md`
-- [ ] T045 Move the four old builders from `inonda-youtube-videos/free-build/` to `inonda-youtube-videos/free-build/archive/` with a one-line note that `reelkit` replaces them (only after T042 passes)
-- [ ] T046 Run every step of `specs/001-free-reel-builder/quickstart.md` and record results in `specs/001-free-reel-builder/checklists/quickstart-run.md`
-- [ ] T047 Measure SC-002: edit one line of the tile-reel plan and time the rebuild (must be < 2 min); note it in the quickstart run file
+- [X] T045 Move the four old builders from `inonda-youtube-videos/free-build/` to `inonda-youtube-videos/free-build/archive/` with a one-line note that `reelkit` replaces them (only after T042 passes)
+- [X] T046 Run every step of `specs/001-free-reel-builder/quickstart.md` and record results in `specs/001-free-reel-builder/checklists/quickstart-run.md`
+- [X] T047 Measure SC-002: edit one line of the tile-reel plan and time the rebuild (must be < 2 min); note it in the quickstart run file
 
 ---
 

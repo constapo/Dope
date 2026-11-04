@@ -9,7 +9,7 @@ Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [
 ## Making reels and videos (reelkit, from 2026-11-04)
 New reels are written as plans in `reels/` and built with `bin/reelkit` (free sources only, house
 rules checked automatically). How to use it: `tools/reelkit/README.md`. Spec and plan:
-`specs/001-free-reel-builder/`. The old one-off builders in `free-build/` are kept for reference.
+`specs/001-free-reel-builder/`. The old one-off builders are archived in `free-build/archive/`; `free-build/build_v01.py` (Video 01, landscape) is not converted yet.
 
 ## House rules for every Inonda video (owner, 2026-10-29)
 - **No prices, ever.** The company does not work with fixed prices. Never show, say or caption a

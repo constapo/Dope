@@ -36,7 +36,7 @@ def test_build_two_lines(plans_dir, tmp_path, capsys):
     # second run: everything cached
     assert main(["build", plan, "--out", str(out), "--stub-voice", "--offline"]) == 0
     log = (out / "build.log").read_text()
-    assert log.count("voice line") == 2 and log.count("cache hit") >= 2 and "new clip" not in log
+    assert log.count("voice line") == 2 and "new clip" not in log and "rendered" not in log
 
 
 def test_one_line_edit_revoices_one_clip(plans_dir, tmp_path):
@@ -50,6 +50,8 @@ def test_one_line_edit_revoices_one_clip(plans_dir, tmp_path):
     assert main(["build", str(plan), "--out", str(out), "--stub-voice", "--offline"]) == 0
     log = (out / "build.log").read_text()
     assert log.count("new clip") == 1 and log.count("voice line 1: cache hit") == 1
+    assert "segment line 1: cache hit" in log and "segment line 2: rendered" in log
+    assert "segment end card: cache hit" in log
 
 
 def test_missing_own_file_exits_4(write_plan, tmp_path):

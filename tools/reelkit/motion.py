@@ -1,4 +1,4 @@
-"""Handheld phone camera move, ported from inonda-youtube-videos/free-build/build_tiles_photo.py.
+"""Handheld phone camera move, ported from inonda-youtube-videos/free-build/archive/build_tiles_photo.py.
 
 The camera is always level at chest height (constitution, Principle III): the only motion is a slow
 zoom/slide across the still, a smooth hand shake and a tiny roll. There is no angle parameter.

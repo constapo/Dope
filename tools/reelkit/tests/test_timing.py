@@ -8,22 +8,33 @@ def make_plan(min_seconds=(0, 0), end=6):
     return ReelPlan("p.yaml", "t", "T", "reel", lines, end_card_seconds=end)
 
 
+F = 1 / 30  # timings are whole frames, rounded up
+
+
 def test_spans_follow_speech():
     tl = timeline(make_plan(), [2.0, 3.0])
     a, b = tl["spans"]
-    assert a["start"] == LEAD
-    assert a["end"] == LEAD + 2.0 + GAP
+    assert abs(a["start"] - LEAD) < F
+    assert 0 <= a["end"] - a["start"] - (2.0 + GAP) < F
     assert b["start"] == a["end"]
-    assert b["end"] == b["start"] + 3.0 + GAP
-    assert a["sub_end"] == a["start"] + 2.0 + SUB_TAIL
-    assert tl["total"] == b["end"] + 6
+    assert 0 <= b["end"] - b["start"] - (3.0 + GAP) < F
+    assert 0 <= a["sub_end"] - a["start"] - (2.0 + SUB_TAIL) < F
+    assert abs(tl["total"] - (b["end"] + 6)) < 1e-9
+
+
+def test_whole_frames_and_independent_lines():
+    a = timeline(make_plan(), [2.0, 3.0])
+    b = timeline(make_plan(), [2.5, 3.0])  # change only line 1's length
+    assert a["spans"][1]["frames"] == b["spans"][1]["frames"]
+    for s in a["spans"]:
+        assert abs(s["start"] * 30 - round(s["start"] * 30)) < 1e-6
 
 
 def test_min_seconds_extends_line():
     tl = timeline(make_plan(min_seconds=(5, 0)), [2.0, 1.0])
     a = tl["spans"][0]
-    assert a["end"] - a["start"] == 5
-    assert a["sub_end"] == a["start"] + 2.0 + SUB_TAIL
+    assert abs(a["end"] - a["start"] - 5) < 1e-9
+    assert 0 <= a["sub_end"] - a["start"] - (2.0 + SUB_TAIL) < F
 
 
 def test_subtitle_never_outlasts_line():

@@ -66,5 +66,5 @@ reminds to add an "illustration" label if it could pass as a real Inonda job.
 python3 -m reelkit build inonda-youtube-videos/reels/tiles-black-marble-90s.yaml
 ```
 
-Expected: same 19 lines, subtitles and order as `free-build/build_tiles_photo.py`, length
+Expected: same 19 lines, subtitles and order as `free-build/archive/build_tiles_photo.py`, length
 90 s ± 1 s.

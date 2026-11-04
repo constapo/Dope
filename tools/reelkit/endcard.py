@@ -1,4 +1,4 @@
-"""Silent bilingual Inonda end card, ported from inonda-youtube-videos/free-build/build_tiles_preview.py.
+"""Silent bilingual Inonda end card, ported from inonda-youtube-videos/free-build/archive/build_tiles_preview.py.
 
 No prices (constitution, Principle I): the card offers a free inspection and a written quote only.
 """
