@@ -111,36 +111,17 @@ def greek_ass(cues, out):
 
 
 def cta_card(out, logo):
-    """Silent bilingual (English/Greek) end card: on-screen call to contact us and follow us (no narration over it)."""
-    accent = "0x4FC3F7"
-    lines = [  # English line, then its Greek version
-        ("Inonda Ltd", 80, 325, "white"),
-        ("Repairs - Renovations - Maintenance - Cyprus", 34, 425, "white"),
-        ("Επισκευές - Ανακαινίσεις - Συντήρηση - Κύπρος", 34, 470, "white"),
-        ("CONTACT US TODAY", 60, 555, accent), ("ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ", 48, 625, accent),
-        ("Free inspection and written quote", 34, 695, "white"),
-        ("Δωρεάν αυτοψία και γραπτή προσφορά", 34, 740, "white"),
-        ("Irina, Director  ·  Ιρίνα, Διευθύντρια", 36, 815, "white"), ("+357 94 091 616", 60, 865, "white"),
-        ("Constantin, Foreman  ·  Κωνσταντίν, Εργοδηγός", 34, 955, "white"), ("+357 94 091 613", 60, 1003, "white"),
-        ("WhatsApp  -  Viber  -  Call / Κλήση", 36, 1090, "white"), ("inonda2026@outlook.com", 42, 1150, "white"),
-        ("FOLLOW US", 60, 1245, accent), ("ΑΚΟΛΟΥΘΗΣΤΕ ΜΑΣ", 48, 1315, accent),
-        ("Facebook: inondalimited", 42, 1390, "white"), ("Instagram: @inondaltd", 42, 1450, "white"),
-        ("TikTok: @inonda26", 42, 1510, "white"), ("YouTube: @InondaLTD", 42, 1570, "white"),
-        ("inonda.site  |  inonda.org  |  inonda.homes", 36, 1660, "white"),
-        ("29 Charalampou Mouskou, 2014 Strovolos, Nicosia", 28, 1730, "white"),
-        ("Χαραλάμπου Μούσκου 29, 2014 Στρόβολος, Λευκωσία", 28, 1770, "white"),
-    ]
-    dt = ",".join(
-        f"drawtext=fontfile={base.FONT}:text='{t.replace(':', chr(92) + ':')}':fontsize={sz}:fontcolor={c}"
-        f":x=(w-tw)/2:y={y}:alpha='min(1,max(0,(t-{0.10*i:.2f})/0.4))'" for i, (t, sz, y, c) in enumerate(lines))
-    inputs = ["-f", "lavfi", "-i", f"color=c=0x16232b:s={base.W}x{base.H}:r={base.FPS}:d={base.CARD_SECS}"]
-    if logo and os.path.exists(logo):
-        inputs += ["-loop", "1", "-i", logo]
-        fc = f"[1:v]scale=280:-1[l];[0:v][l]overlay=(W-w)/2:60,{dt},format=yuv420p"
-    else:
-        fc = f"[0:v]{dt},format=yuv420p"
-    base.run("ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", fc, "-t", str(base.CARD_SECS),
-             "-c:v", "libx264", "-preset", "veryfast", "-crf", "19", out)
+    """Silent GLASS end card (owner, 2026-11-04: on every video): the finished bathroom, blurred,
+    behind frosted-glass panels with logo, phones, WhatsApp/Viber, email and socials. `logo` is
+    unused: the card carries the logo itself."""
+    from PIL import Image
+    from end_card_brand import end_card_glass
+    last = f"{os.path.dirname(os.path.dirname(out))}/rimg/{base.SHOTS[-1][0]}.jpg"
+    png = out.replace(".mp4", ".png")
+    end_card_glass(Image.open(last) if os.path.exists(last) else None).save(png)
+    base.run("ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", png, "-t", str(base.CARD_SECS),
+             "-r", str(base.FPS), "-vf", "format=yuv420p", "-c:v", "libx264", "-preset", "veryfast",
+             "-crf", "19", out)
 
 
 def main():
