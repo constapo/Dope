@@ -21,14 +21,17 @@ Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [
 - What we may say instead: every job is different; we visit, look at the job properly and give a
   clear written quote (free inspection).
 - Narration: Kokoro `am_michael` (speed 0.90), Greek subtitles, silent bilingual end card.
-- **End card = the GLASS end card (owner, 2026-11-04) — on ABSOLUTELY EVERY video, no exceptions.**
-  Build it with `end_card_glass(bg)` in `free-build/end_card_brand.py`: a blurred photo of the
-  video's finished job (its last scene) behind frosted-glass panels. All video projects were remade
-  with it. The older flat card (`brand/end-card-standard.png`, `end_card()`) is retired. Content: Company logo on a
-  light panel above "Inonda Ltd"; both phone numbers, each with a modern smartphone icon (never the
-  classic handset); WhatsApp, Viber and every social account (Facebook, Instagram, TikTok, YouTube)
-  shown with icons in their original brand colours, never monochrome. The logo is on the card itself,
-  so the end card gets no extra corner logo.
+- **End card = the GLASS card on ABSOLUTELY ALL videos (owner, 2026-11-04: "remake all video projects
+  using glass end card in absolute all videos we do").** `end_card_glass(bg)` in
+  `free-build/end_card_brand.py`. Pass a photo of that video's finished job (normally its last scene)
+  as `bg`; it is blurred and darkened behind frosted-glass panels. With no photo, `end_card_glass(None)`
+  uses the navy-to-teal background. Pictures: `brand/end-card-glass-photo.png`,
+  `brand/end-card-glass-plain.png`. The classic flat card (`end_card()`, `brand/end-card-classic.png`)
+  is no longer used on any video.
+  - Content: logo on a light panel above "Inonda Ltd"; both phone numbers with modern smartphone
+    icons (never the classic handset); WhatsApp, Viber, Facebook, Instagram, TikTok, YouTube in
+    original brand colours (never monochrome); email, websites; bilingual EN/GR; silent; no corner
+    logo on the card.
 - **Real-looking footage only — never drawings, cartoons, animations or illustrated scenes**
   in any video, preview included (owner, 2026-10-29: "never-ever drawings or cartoon on videos").
 - **Camera always at hand height, level, like a person filming with a phone.** No views from the
