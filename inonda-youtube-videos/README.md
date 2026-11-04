@@ -21,6 +21,11 @@ Notes: videos 17 and 20 not yet voiced (need real job details). Sentences with [
 - What we may say instead: every job is different; we visit, look at the job properly and give a
   clear written quote (free inspection).
 - Narration: Kokoro `am_michael` (speed 0.90), Greek subtitles, silent bilingual end card.
+- **End card (owner, 2026-11-04) — on ABSOLUTELY EVERY video, no exceptions.** Approved picture: `brand/end-card-standard.png`. Build it with `free-build/end_card_brand.py`. Company logo on a
+  light panel above "Inonda Ltd"; both phone numbers, each with a modern smartphone icon (never the
+  classic handset); WhatsApp, Viber and every social account (Facebook, Instagram, TikTok, YouTube)
+  shown with icons in their original brand colours, never monochrome. The logo is on the card itself,
+  so the end card gets no extra corner logo.
 - **Real-looking footage only — never drawings, cartoons, animations or illustrated scenes**
   in any video, preview included (owner, 2026-10-29: "never-ever drawings or cartoon on videos").
 - **Camera always at hand height, level, like a person filming with a phone.** No views from the
