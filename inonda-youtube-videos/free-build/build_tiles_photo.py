@@ -139,9 +139,9 @@ def main(stills_dir, out_dir, lines=LINES, name="Inonda_Tiles_BlackMarble_90s_PR
             d.rounded_rectangle([60, 320, 60 + d.textlength(label, font=f_lab) + 50, 410], 18, fill=NAVY)
             d.text((85, 330), label, font=f_lab, fill=ACCENT if "AFTER" in label else "white")
         if spans[k][0] <= t <= spans[k][1] + 0.3:  # Greek subtitle above the bottom 20 % safe area
-            lines = wrap(d, gr, f_sub, W - 140)
-            y = int(H * 0.74) - len(lines) * 62
-            for ln in lines:
+            sub = wrap(d, gr, f_sub, W - 140)
+            y = int(H * 0.74) - len(sub) * 62
+            for ln in sub:
                 text_center(d, y, ln, f_sub, "white"); y += 64
         ff.stdin.write(stamp(fr, mark).tobytes())
     ff.stdin.close(); ff.wait()
