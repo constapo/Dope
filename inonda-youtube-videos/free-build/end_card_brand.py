@@ -182,5 +182,109 @@ def end_card():
     return im.convert("RGB")
 
 
+def _glass(im, box, radius=40, tint=(255, 255, 255, 38), edge=(255, 255, 255, 70)):
+    """Frosted-glass panel: blur what is behind it, lay a light tint and a thin bright edge."""
+    from PIL import ImageFilter
+    x0, y0, x1, y1 = [int(v) for v in box]
+    region = im.crop((x0, y0, x1, y1)).filter(ImageFilter.GaussianBlur(18))
+    over = Image.new("RGBA", region.size, tint)
+    region = Image.alpha_composite(region.convert("RGBA"), over)
+    mask = Image.new("L", region.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, region.width - 1, region.height - 1], radius, fill=255)
+    im.paste(region, (x0, y0), mask)
+    ImageDraw.Draw(im).rounded_rectangle([x0, y0, x1 - 1, y1 - 1], radius, outline=edge, width=2)
+
+
+def _background(bg):
+    from PIL import ImageFilter, ImageEnhance
+    if bg is None:  # navy to teal gradient
+        g = Image.new("RGB", (W, H))
+        px = g.load()
+        for y in range(H):
+            t = y / (H - 1)
+            c = tuple(int(a + (b - a) * t) for a, b in zip((14, 30, 48), (10, 78, 96)))
+            for x in range(W):
+                px[x, y] = c
+        return g.convert("RGBA")
+    bg = bg.convert("RGB")
+    s = max(W / bg.width, H / bg.height)
+    bg = bg.resize((round(bg.width * s), round(bg.height * s)), Image.LANCZOS)
+    bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H))
+    bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(26))).enhance(0.45)
+    shade = Image.new("RGBA", (W, H), (8, 20, 30, 110))
+    return Image.alpha_composite(bg.convert("RGBA"), shade)
+
+
+def end_card_glass(bg=None):
+    """2026 'link-in-bio' style: blurred photo of the finished job behind frosted-glass panels,
+    pill buttons for the phones, a row of brand-coloured app icons. bg: PIL image or None."""
+    im = _background(bg)
+    d = ImageDraw.Draw(im)
+
+    logo = Image.open(os.path.join(BRAND, "inonda-logo-overlay.png")).convert("RGBA")
+    lw = 360
+    logo = logo.resize((lw, int(logo.height * lw / logo.width)), Image.LANCZOS)
+    pw, ph = lw + 70, logo.height + 40
+    px, py = (W - pw) // 2, 80
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))  # soft shadow under the light logo panel
+    ImageDraw.Draw(sh).rounded_rectangle([px + 6, py + 14, px + pw + 6, py + ph + 14], 44, fill=(0, 0, 0, 120))
+    from PIL import ImageFilter
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14)))
+    d.rounded_rectangle([px, py, px + pw, py + ph], 44, fill=(255, 255, 255, 255))
+    im.alpha_composite(logo, ((W - lw) // 2, py + 20))
+    y = py + ph + 26
+    centre(d, y, "Inonda Ltd", font(FONT_B, 72), "white"); y += 92
+    centre(d, y, "Repairs · Renovations · Maintenance · Cyprus", font(FONT_R, 28), SOFT); y += 40
+    centre(d, y, "Επισκευές · Ανακαινίσεις · Συντήρηση · Κύπρος", font(FONT_R, 28), SOFT); y += 66
+
+    centre(d, y, "FREE INSPECTION & QUOTE", font(FONT_B, 54), ACCENT); y += 66
+    centre(d, y, "ΔΩΡΕΑΝ ΑΥΤΟΨΙΑ & ΠΡΟΣΦΟΡΑ", font(FONT_B, 44), ACCENT); y += 78
+
+    # Phone pills.
+    icon, fn, fl = phone_icon(92), font(FONT_B, 56), font(FONT_R, 25)
+    for num, who in PHONES:
+        _glass(im, (90, y, W - 90, y + 124), radius=62)
+        d = ImageDraw.Draw(im)
+        im.alpha_composite(icon, (106, y + 16))
+        d.text((228, y + 10), num, font=fn, fill="white")
+        d.text((230, y + 78), who, font=fl, fill=SOFT)
+        y += 144
+
+    # Message row: WhatsApp, Viber, email.
+    s = 78
+    _glass(im, (90, y, W - 90, y + s + 36), radius=50)
+    d = ImageDraw.Draw(im)
+    im.alpha_composite(brand_tile("whatsapp", s), (110, y + 18))
+    im.alpha_composite(brand_tile("viber", s), (110 + s + 14, y + 18))
+    d.text((110 + 2 * s + 40, y + 20), "WhatsApp · Viber · Call", font=font(FONT_B, 32), fill="white")
+    d.text((110 + 2 * s + 40, y + 62), "Γράψτε μας ή καλέστε μας", font=font(FONT_R, 26), fill=SOFT)
+    y += s + 56
+    f = font(FONT_R, 34)
+    mail = "inonda2026@outlook.com"
+    total = 60 + 20 + d.textlength(mail, font=f)
+    x = int((W - total) / 2)
+    im.alpha_composite(mail_icon(60), (x, y)); d.text((x + 80, y + 10), mail, font=f, fill="white")
+    y += 98
+
+    # Follow us: four brand icons in a row on one glass panel.
+    _glass(im, (60, y, W - 60, y + 280), radius=44)
+    d = ImageDraw.Draw(im)
+    centre(d, y + 22, "FOLLOW US  ·  ΑΚΟΛΟΥΘΗΣΤΕ ΜΑΣ", font(FONT_B, 40), "white")
+    s, fh = 100, font(FONT_R, 24)
+    colw = (W - 120) / 4
+    for i, (key, name, handle) in enumerate(SOCIAL):
+        cx = 60 + colw * i + colw / 2
+        im.alpha_composite(brand_tile(key, s), (int(cx - s / 2), y + 88))
+        d.text((cx - d.textlength(handle, font=fh) / 2, y + 88 + s + 16), handle, font=fh, fill="white")
+    y += 310
+    centre(d, y, "inonda.site  ·  inonda.org  ·  inonda.homes", font(FONT_B, 32), "white")
+    return im.convert("RGB")
+
+
 if __name__ == "__main__":
-    end_card().save(sys.argv[1] if len(sys.argv) > 1 else "end_card.png")
+    # python3 end_card_brand.py OUT.png [glass [BACKGROUND_IMAGE]]
+    out = sys.argv[1] if len(sys.argv) > 1 else "end_card.png"
+    if len(sys.argv) > 2 and sys.argv[2] == "glass":
+        end_card_glass(Image.open(sys.argv[3]) if len(sys.argv) > 3 else None).save(out)
+    else:
+        end_card().save(out)
