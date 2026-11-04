@@ -7,6 +7,10 @@
 # `bin/reelkit pictures` regenerates them for free. If you still have the originals, replace a
 # `generate:` with `file: ../../media/stills/tiles-black-marble/<name>.webp` (old still names in
 # the comments).
+#
+# Lines 9, 10, 11, 12, 15 and 17 use Canva AI pictures (2026-11-04, owner request): stills exported from
+# the Canva design "Inonda reelkit stills", and lines 11 and 15 are 5 s Canva video scenes. All are hands,
+# tools or empty rooms only (Principle V); review.md asks for the illustration label.
 slug: tiles-black-marble-90s
 title: "New floor tiles, step by step"
 format: reel
@@ -57,22 +61,22 @@ lines:
     min_seconds: 4.4
   - speech: "Next, the whole floor gets a waterproofing membrane."   # water1
     greek: "Μετά όλο το δάπεδο παίρνει στεγανωτική μεμβράνη."
-    picture: {generate: "grey liquid waterproofing membrane being rolled onto a cement floor with a paint roller"}
+    picture: {file: ../../media/canva/tiles-black-marble/l09-membrane.jpg, ai_generated: true, source: canva-ai}
     move: {zoom_from: 1.00, zoom_to: 1.07, slide_x: 0.4}
     min_seconds: 4.4
   - speech: "Corners and joints are sealed with reinforcing tape."   # water2
     greek: "Γωνίες και αρμοί σφραγίζονται με ενισχυτική ταινία."
-    picture: {generate: "waterproofing reinforcing tape pressed into the corner where the floor meets the wall"}
+    picture: {file: ../../media/canva/tiles-black-marble/l10-corner-tape.jpg, ai_generated: true, source: canva-ai}
     move: {zoom_from: 1.05, zoom_to: 1.00, slide_y: 0.2}
     min_seconds: 4.4
   - speech: "Adhesive goes on evenly with a notched trowel."      # adhesive
     greek: "Η κόλλα απλώνεται ομοιόμορφα με οδοντωτή σπάτουλα."
-    picture: {generate: "hands spreading grey tile adhesive in even ridges with a notched trowel on a floor"}
+    picture: {file: ../../media/canva/tiles-black-marble/l11-adhesive-clip.mp4, ai_generated: true, source: canva-ai}   # Canva video scene
     move: {zoom_from: 1.05, zoom_to: 1.00, slide_x: 0.3}
     min_seconds: 4.4
   - speech: "The tiles go down right over the waterproofing."     # water3
     greek: "Τα πλακάκια μπαίνουν ακριβώς πάνω από τη στεγάνωση."
-    picture: {generate: "close-up of two hands in work gloves pressing a large black marble-look tile onto grey adhesive on a waterproofed floor, only hands and tile in the shot"}
+    picture: {file: ../../media/canva/tiles-black-marble/l12-pressing-tile.jpg, ai_generated: true, source: canva-ai}
     move: {zoom_from: 1.00, zoom_to: 1.06, slide_x: -0.4}
     min_seconds: 4.4
   - speech: "Then we lay the new tiles,"                          # work2
@@ -87,7 +91,7 @@ lines:
     min_seconds: 4.4
   - speech: "Fine grout fills every joint."                       # grout
     greek: "Λεπτός αρμόστοκος γεμίζει κάθε αρμό."
-    picture: {generate: "rubber grout float pressing dark grout into the joints between black marble-look tiles"}
+    picture: {file: ../../media/canva/tiles-black-marble/l15-grout-clip.mp4, ai_generated: true, source: canva-ai}   # Canva video scene
     move: {zoom_from: 1.00, zoom_to: 1.08, slide_x: 0.2, slide_y: 0.2}
     min_seconds: 4.4
   - speech: "Then everything is cleaned and polished."            # clean
@@ -98,7 +102,7 @@ lines:
   - speech: "A smooth, easy-to-clean finish."                     # after
     greek: "Λείο φινίρισμα που καθαρίζει εύκολα."
     label: "AFTER · ΜΕΤΑ"
-    picture: {generate: "finished glossy black marble-look tiled floor in a bright Cyprus living room, daylight from a window"}
+    picture: {file: ../../media/canva/tiles-black-marble/l17-finished-floor.jpg, ai_generated: true, source: canva-ai}
     move: {zoom_from: 1.03, zoom_to: 1.03, slide_x: 0.7}
     min_seconds: 4.4
   - speech: "Black marble look, made to last."                    # after3

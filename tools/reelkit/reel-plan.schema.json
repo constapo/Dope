@@ -48,8 +48,10 @@
         {
           "type": "object", "additionalProperties": false, "required": ["file"],
           "properties": {
-            "file": {"type": "string"},
-            "ai_generated": {"type": "boolean", "default": false}
+            "file": {"type": "string", "description": "photo or video clip (.mp4/.mov/.webm/.m4v), path relative to the plan"},
+            "ai_generated": {"type": "boolean", "default": false},
+            "source": {"type": "string", "description": "where the file came from, e.g. canva-ai (default: own)"},
+            "credit": {"type": "string"}
           }
         },
         {

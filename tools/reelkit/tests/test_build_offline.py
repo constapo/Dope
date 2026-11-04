@@ -76,3 +76,35 @@ def test_new_writes_passing_starter(tmp_path, monkeypatch):
     assert main(["check", str(path)]) == 0
     assert main(["new", "my-reel"]) == 2  # never overwrites
     shutil.rmtree(tmp_path / "inonda-youtube-videos")
+
+
+def test_video_clip_line(tmp_path):
+    """A file: picture can be a video clip (e.g. a Canva scene): cover-cropped, last frame held,
+    subtitles drawn on top, credited with its source."""
+    clip = tmp_path / "clip.mp4"  # 1 s landscape test clip, shorter than the line
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc=size=640x360:rate=24",
+                    "-t", "1", "-pix_fmt", "yuv420p", str(clip)], check=True)
+    still = os.path.join(os.path.dirname(__file__), "stills", "portrait.jpg")
+    plan = tmp_path / "clip.yaml"
+    plan.write_text(f"""slug: clip-line
+title: Clip line
+format: reel
+end_card: {{seconds: 2}}
+lines:
+  - speech: "Fine grout fills every joint."
+    greek: "Λεπτός αρμόστοκος γεμίζει κάθε αρμό."
+    picture: {{file: {clip}, ai_generated: true, source: canva-ai}}
+  - speech: "Then everything is cleaned."
+    greek: "Μετά όλα καθαρίζονται."
+    picture: {{file: {still}}}
+""", encoding="utf-8")
+    out = tmp_path / "build"
+    assert main(["build", str(plan), "--out", str(out), "--stub-voice", "--offline"]) == 0
+    info = probe(str(out / "clip-line.mp4"))
+    v = next(s for s in info["streams"] if s["codec_type"] == "video")
+    assert (v["width"], v["height"]) == (1080, 1920)
+    # stub voice 0.35 s/word: 5 and 4 words; lead 0.4 + (1.75+0.35) + (1.4+0.35) + card 2 = 6.25 s
+    assert abs(float(info["format"]["duration"]) - 6.25) < 0.15
+    credits = (out / "credits.md").read_text()
+    assert "| canva-ai | ai-generated |" in credits
+    assert "illustration" in (out / "review.md").read_text()

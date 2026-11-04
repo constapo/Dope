@@ -50,6 +50,8 @@ lines:
     greek: "Σπασμένα, κουρασμένα πλακάκια δαπέδου;"  # subtitle while it is spoken
     label: "BEFORE · ΠΡΙΝ"                           # optional tag
     picture: {file: photos/old-floor.jpg}           # own photo (path relative to the plan)
+    # or {file: clips/grout.mp4}                               # a video clip (.mp4/.mov/.webm/.m4v)
+    # or {file: canva/grout.jpg, ai_generated: true, source: canva-ai}   # AI picture made elsewhere
     # or {stock: https://.../clip.mp4, licence: mixkit-free}   # direct file link + licence
     # or {generate: "close-up of cracked beige floor tiles"}   # free AI Horde still
     # or {reuse: 1}                                            # same picture as line 1
@@ -67,6 +69,18 @@ no account). Any service that asks for payment or credits counts as failed; paid
 Generated pictures never show faces, text or logos, are always eye-level, and must be accepted
 on the contact sheet before use. Real jobs, real clients and the owner on camera are always real
 footage (`file:`), never generated.
+
+### Video clips and Canva pictures
+
+A `file:` picture can be a video clip. It is cover-cropped to the frame, plays from its start at
+30 fps, and holds its last frame if the line is longer than the clip; `move:` is ignored because the
+clip has its own motion. Subtitles and labels are drawn on top as usual.
+
+Pictures and clips made in Canva (for example with Canva's image and video generation, at the
+owner's request) are saved under `media/canva/<reel>/` and used as `file:` pictures with
+`ai_generated: true, source: canva-ai`. Canva generation uses the owner's Canva AI allowance, so
+it is opt-in per reel, never the default. `credits.md` lists them as `canva-ai`, and `review.md`
+reminds you to add the "illustration" label if one could pass as a real Inonda job.
 
 ## Tests
 

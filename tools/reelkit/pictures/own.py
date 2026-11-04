@@ -16,9 +16,12 @@ def resolve(spec: dict, plan_dir: str) -> str | None:
 
 
 def obtain(line, plan_dir: str):
-    path = resolve(line.picture.spec, plan_dir)
+    spec = line.picture.spec
+    path = resolve(spec, plan_dir)
     if path is None:
         return None
     return {"line": line.number, "key": cache.picture_key(line.picture.spec), "file": path,
-            "source": "own", "licence": "own", "credit": "", "ai_generated": line.picture.ai_generated,
+            "source": spec.get("source", "own"),
+            "licence": "ai-generated" if line.picture.ai_generated else "own",
+            "credit": spec.get("credit", ""), "ai_generated": line.picture.ai_generated,
             "accepted": True, "attempts": 0}

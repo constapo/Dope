@@ -28,6 +28,13 @@ RENDER_VERSION = "2"  # bump to invalidate cached segments after a rendering cha
 X264 = ["-c:v", "libx264", "-preset", "fast", "-crf", "19", "-pix_fmt", "yuv420p", "-r", str(FPS)]
 
 
+VIDEO_EXT = (".mp4", ".mov", ".webm", ".m4v")
+
+
+def is_video(path: str) -> bool:
+    return path.lower().endswith(VIDEO_EXT)
+
+
 def _frames(seconds: float) -> int:
     return int(math.ceil(round(seconds * FPS, 6)))
 
@@ -124,12 +131,16 @@ def render(plan, build_dir: str, picture_files: dict, clip_paths: list[str], war
             continue
         line = plan.lines[s["k"]]
         path = picture_files[line.number]
+        if is_video(path):
+            continue
         if path not in stills:
             stills[path], cropped = motion.load_still(path, w, h)
             if cropped and line.number not in cropped_warned:
                 cropped_warned.add(line.number)
     for line in plan.lines:  # report crops for every line, cached or not
         path = picture_files[line.number]
+        if is_video(path):
+            continue
         if path not in stills:
             from PIL import Image
             with Image.open(path) as im:
@@ -161,8 +172,11 @@ def render(plan, build_dir: str, picture_files: dict, clip_paths: list[str], war
                                    "-s", f"{w}x{h}", "-r", str(FPS), "-i", "-", *X264, "-an", tmp],
                                   stdin=subprocess.PIPE)
             idx = segments.index(s)
-            jobs = [(idx, i) for i in range(s["frames"])]
-            frames = pool.imap(_frame_bytes, jobs, chunksize=6) if pool else map(_frame_bytes, jobs)
+            if s["kind"] == "line" and is_video(picture_files[plan.lines[s["k"]].number]):
+                frames = _clip_frames(idx)
+            else:
+                jobs = [(idx, i) for i in range(s["frames"])]
+                frames = pool.imap(_frame_bytes, jobs, chunksize=6) if pool else map(_frame_bytes, jobs)
             try:
                 for fr in frames:
                     ff.stdin.write(fr)
@@ -205,6 +219,13 @@ def _frame_bytes(job) -> bytes:
     mv = line.move
     fr = motion.frame(st["stills"][st["files"][line.number]], w, h, p, mv.zoom_from, mv.zoom_to,
                       mv.slide_x, mv.slide_y, jx[i] * ax, jy[i] * ay, jr[i] * ar)
+    _overlays(fr, st, line, span, i - seg["lead"])
+    return fr.tobytes()
+
+
+def _overlays(fr, st, line, span, local):
+    """Label tag and Greek subtitle, drawn the same way on stills and clips."""
+    w, h, scale = st["w"], st["h"], st["scale"]
     d = ImageDraw.Draw(fr)
     if line.label:
         f_lab = st["f_lab"]
@@ -214,7 +235,6 @@ def _frame_bytes(job) -> bytes:
                              y0 + int(90 * scale)], int(18 * scale), fill=NAVY)
         d.text((x0 + pad, y0 + int(10 * scale)), line.label, font=f_lab,
                fill=ACCENT if "AFTER" in line.label.upper() else "white")
-    local = i - seg["lead"]
     if 0 <= local < span["sub_frames"]:  # Greek subtitle above the bottom 20 % safe area
         rows, size = st["subs"][line.number]
         font = ImageFont.truetype(FONT_B, size)
@@ -223,4 +243,32 @@ def _frame_bytes(job) -> bytes:
         for row in rows:
             text_center(d, w, y, row, font, "white")
             y += step
-    return fr.tobytes()
+
+
+def _clip_frames(seg_idx):
+    """Frames of a video-clip line: the clip cover-cropped to the frame at FPS, from its start;
+    the last frame is held if the line is longer than the clip. No added camera move."""
+    from PIL import Image
+    st = _STATE
+    seg = st["segments"][seg_idx]
+    w, h = st["w"], st["h"]
+    k = seg["k"]
+    line, span = st["plan"].lines[k], st["tl"]["spans"][k]
+    dec = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-i", st["files"][line.number], "-an",
+                            "-vf", f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},"
+                            f"fps={FPS},format=rgb24", "-f", "rawvideo", "-"], stdout=subprocess.PIPE)
+    size, last = w * h * 3, None
+    try:
+        for i in range(seg["frames"]):
+            buf = dec.stdout.read(size)
+            if len(buf) == size:
+                last = buf
+            if last is None:
+                raise RuntimeError(f"line {line.number}: could not read video clip {st['files'][line.number]}")
+            fr = Image.frombytes("RGB", (w, h), last)
+            _overlays(fr, st, line, span, i - seg["lead"])
+            yield fr.tobytes()
+    finally:
+        dec.stdout.close()
+        dec.kill()
+        dec.wait()
