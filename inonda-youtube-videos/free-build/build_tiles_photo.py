@@ -60,11 +60,11 @@ LINES = [
 ]
 
 
-def voice(out):
+def voice(out, lines=LINES):
     from kokoro_onnx import Kokoro
     k = Kokoro(f"{KOKORO_DIR}/kokoro-v1.0.onnx", f"{KOKORO_DIR}/voices-v1.0.bin")
     sr, speech = 24000, []
-    for line in LINES:
+    for line in lines:
         s, sr = k.create(line[1], voice="am_michael", speed=0.90, lang="en-us")
         speech.append(s)
     lead = 0.4
@@ -111,17 +111,17 @@ def frame(src, p, z0, z1, sx, sy, jx, jy, rot):
     return im
 
 
-def main(stills_dir, out_dir):
+def main(stills_dir, out_dir, lines=LINES, name="Inonda_Tiles_BlackMarble_90s_PREVIEW.mp4"):
     os.makedirs(out_dir, exist_ok=True)
     wav = os.path.join(out_dir, "voice.wav")
-    spans, shots_end, total = voice(wav)
-    stills = {n: load_still(stills_dir, n) for n in {line[0] for line in LINES}}
+    spans, shots_end, total = voice(wav, lines)
+    stills = {n: load_still(stills_dir, n) for n in {line[0] for line in lines}}
     mark = logo()
     card = brand_end_card()  # logo is on the card itself (owner, 2026-11-04), so no corner stamp
     f_sub, f_lab = ImageFont.truetype(FONT_B, 50), ImageFont.truetype(FONT_B, 54)
     n = int(round(total * FPS))
     jx, jy, jr = shake(n, 1, 9), shake(n, 2, 7), shake(n, 3, 0.35)
-    out = os.path.join(out_dir, "Inonda_Tiles_BlackMarble_90s_PREVIEW.mp4")
+    out = os.path.join(out_dir, name)
     ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
                            "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", wav, "-c:v", "libx264",
                            "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-c:a", "aac",
@@ -133,8 +133,8 @@ def main(stills_dir, out_dir):
         k = max(j for j, s in enumerate(spans) if t >= s[0] or j == 0)
         start = spans[k][0] if k else 0.0
         p = min(1.0, max(0.0, (t - start) / (spans[k][2] - start)))
-        name, en, gr, label, z0, z1, sx, sy = LINES[k]
-        fr = frame(stills[name], p, z0, z1, sx, sy, jx[i], jy[i], jr[i])
+        still, en, gr, label, z0, z1, sx, sy = lines[k]
+        fr = frame(stills[still], p, z0, z1, sx, sy, jx[i], jy[i], jr[i])
         d = ImageDraw.Draw(fr)
         if label:
             d.rounded_rectangle([60, 320, 60 + d.textlength(label, font=f_lab) + 50, 410], 18, fill=NAVY)
