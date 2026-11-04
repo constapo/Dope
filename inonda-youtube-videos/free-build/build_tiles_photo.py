@@ -15,6 +15,7 @@ import numpy as np
 import soundfile
 from PIL import Image, ImageDraw, ImageFont
 
+from end_card_brand import end_card as brand_end_card
 from build_tiles_preview import (ACCENT, END_SECS, FONT_B, FPS, H, KOKORO_DIR, NAVY, W, end_card,
                                  text_center, wrap)
 
@@ -116,7 +117,7 @@ def main(stills_dir, out_dir):
     spans, shots_end, total = voice(wav)
     stills = {n: load_still(stills_dir, n) for n in {line[0] for line in LINES}}
     mark = logo()
-    card = stamp(end_card(), mark)
+    card = brand_end_card()  # logo is on the card itself (owner, 2026-11-04), so no corner stamp
     f_sub, f_lab = ImageFont.truetype(FONT_B, 50), ImageFont.truetype(FONT_B, 54)
     n = int(round(total * FPS))
     jx, jy, jr = shake(n, 1, 9), shake(n, 2, 7), shake(n, 3, 0.35)
