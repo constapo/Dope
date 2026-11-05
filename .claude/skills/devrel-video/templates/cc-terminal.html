@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <!--
+      TEMPLATE — Claude Code terminal, RE-ENACTED (not captured). A deterministic beat you type on with
+      GSAP: no VHS, no live model, no PII, re-times to narration. Use it in place of a captured `term<N>.mp4`
+      when you want a repeatable, pixel-controlled cut. Trade-off: you author the prompt + the "answer".
+
+      This file is a self-contained, renderable composition (prove it: scripts/render-qa.sh on a copy). To use
+      it inside a MULTI-ENVIRONMENT tour, copy THREE things into your composition.html, as one timeline beat that
+      replaces a captured terminal clip:
+        1) the .cc-terminal CSS block,
+        2) the <div class="clip cc-terminal" …> markup (give it your beat's data-start / data-duration),
+        3) its GSAP lines (offset them to your beat's data-start).
+      Determinism note: the typewriter uses a MONOSPACE font + `width` in `ch` with `ease:"steps(N)"`, where N =
+      the character count of the line — so it reveals exactly one glyph per step under frame-by-frame render.
+      ponytail: GSAP + fonts from CDN (draft) — vendor for confidential/production.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=block" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root { --brand:#4f46e5; --brand-deep:#0b1020; --highlight:#22d3ee; --salmon:#d97757; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--brand-deep); }
+      body { font-family: "Inter", system-ui, sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+      .fill { position: absolute; inset: 0; }
+      .bg { background: radial-gradient(1200px 720px at 50% 30%, #4f46e5 0%, #0b1020 72%); }
+
+      /* ── .cc-terminal: the re-enacted Claude Code window ─────────────────────────────────────────────
+         Geometry matches the browser/terminal frame in composition.html (left 240, top 115, 1440×850). */
+      .cc-terminal { position: absolute; left: 240px; top: 115px; width: 1440px; height: 850px;
+                     background: #0d1117; border-radius: 16px; box-shadow: 0 40px 120px rgba(0,0,0,.5);
+                     overflow: hidden; z-index: 2; }
+      .cc-bar { height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 16px;
+                background: #161b22; border-bottom: 1px solid #30363d; }
+      .cc-dot { width: 11px; height: 11px; border-radius: 50%; }
+      .cc-label { margin-left: 14px; font-size: 15px; color: #8b949e; font-weight: 500; }
+      .cc-body { padding: 34px 40px; font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+                 font-size: 27px; line-height: 1.62; color: #e6edf3; }
+      .cc-welcome { color: #8b949e; font-size: 22px; margin-bottom: 26px; }
+      .cc-welcome b { color: #fff; font-weight: 700; }
+      .cc-welcome .sp { color: var(--salmon); }
+      .cc-cmd { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+      .cc-cmd .mk { color: var(--highlight); font-weight: 700; }
+      /* typewriter: monospace width in ch + steps() ease reveals one char per frame-step */
+      .type { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; }
+      .cc-cur { display: inline-block; width: 13px; height: 30px; background: var(--highlight); transform: translateY(4px); }
+      .cc-ans { margin-top: 26px; }
+      .cc-ans .row { display: flex; gap: 16px; margin-bottom: 6px; }
+      .cc-ans .b { color: var(--highlight); }               /* bullet */
+      .cc-ans .muted { color: #8b949e; }
+      .cc-ans .hl { color: #fff; }
+      .cc-done { color: var(--salmon); margin-top: 22px; font-size: 22px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8.0" data-width="1920" data-height="1080">
+      <div id="bg" class="clip fill bg" data-start="0" data-duration="8.0" data-track-index="0" style="z-index:0"></div>
+
+      <!-- ONE terminal beat. In a tour: set data-start/data-duration to your beat's slot, track-index like a video clip. -->
+      <div id="cc" class="clip cc-terminal" data-start="0" data-duration="8.0" data-track-index="1">
+        <div class="cc-bar">
+          <span class="cc-dot" style="background:#ff5f57"></span><span class="cc-dot" style="background:#febc2e"></span>
+          <span class="cc-dot" style="background:#28c840"></span><span class="cc-label">claude — ~/acme-demo</span>
+        </div>
+        <div class="cc-body">
+          <div class="cc-welcome"><span class="sp">✻</span> <b>Claude Code</b> · Opus · ~/acme-demo</div>
+          <div class="cc-cmd">
+            <span class="mk">&rsaquo;</span>
+            <!-- width:50ch = the char count of the line below; keep them in sync with steps(50) in GSAP -->
+            <span class="type" style="width:50ch">Find me an AI weather agent I can call and pay for</span>
+            <span id="cur" class="cc-cur"></span>
+          </div>
+          <div id="ans" class="cc-ans">
+            <div class="row" id="a1"><span class="b">&#9679;</span><span><span class="hl">Weather Oracle</span> — a pay-per-call forecast agent you can call over MCP.</span></div>
+            <div class="row" id="a2"><span class="b">&nbsp;</span><span class="muted">One API key · settled over MCP · no checkout.</span></div>
+            <div class="row" id="a3"><span class="b">&#9679;</span><span>Ready to call it — say the word and I'll pay per request.</span></div>
+          </div>
+          <div id="done" class="cc-done">&#10022; Done</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      // window in
+      tl.from("#cc", { opacity: 0, scale: 0.97, duration: 0.5 }, 0.0);
+      tl.from(".cc-welcome", { opacity: 0, duration: 0.4 }, 0.35);
+      tl.from(".cc-cmd .mk", { opacity: 0, duration: 0.3 }, 0.7);
+      // type the prompt — steps(N) where N = the line's character count (50)
+      tl.from(".cc-cmd .type", { width: 0, duration: 1.7, ease: "steps(50)" }, 0.9);
+      // cursor: hold, then drop away as the prompt is "submitted"
+      tl.to("#cur", { opacity: 0, duration: 0.2 }, 2.8);
+      tl.set("#cur", { opacity: 0 }, 8.0);
+      // reveal the answer line by line
+      tl.from("#a1", { opacity: 0, y: 12, duration: 0.4 }, 3.1);
+      tl.from("#a2", { opacity: 0, y: 12, duration: 0.4 }, 3.5);
+      tl.from("#a3", { opacity: 0, y: 12, duration: 0.4 }, 4.0);
+      tl.from("#done", { opacity: 0, duration: 0.4 }, 4.6);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

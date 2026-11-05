@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <!--
+      TEMPLATE — fill every {{PLACEHOLDER}}. Timing model:
+        title card:  0 → 3.0s
+        footage:     data-start 3.0, data-duration {{FOOTAGE_DURATION}}  (from ffprobe of capture.mp4)
+        chapters:    data-start = 3.0 + (capture-beat time)      ← sync to the beats you recorded
+        CTA:         starts ~0.2s before footage ends, {{TOTAL}} = 3.0 + {{FOOTAGE_DURATION}} + 2.6
+      ponytail: GSAP + font load from CDN below — VENDOR both for confidential/production (guide §5.5/§14.5).
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family={{FONT}}:wght@400;500;600;700;800&display=block" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        /* from brands/<name>/tokens.json — Acme (default) shown. Names are semantic, so any brand maps on. */
+        --brand: {{BRAND}};           /* #4f46e5 */
+        --brand-deep: {{BRAND_DEEP}}; /* #0b1020 */
+        --accent: {{ACCENT}};         /* #6366f1 */
+        --highlight: {{HIGHLIGHT}};   /* #22d3ee */
+        --muted: {{MUTED}};           /* #94a3b8 */
+        --line: #e3e7f0;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--brand-deep); }
+      body { font-family: "{{FONT}}", system-ui, sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+      .fill { position: absolute; inset: 0; }
+      .center { display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+      .bg { background: radial-gradient(1200px 720px at 50% 30%, var(--brand) 0%, var(--brand-deep) 72%); }
+      .wordmark { color: #fff; display: block; }
+
+      .kicker { font-size: 24px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--highlight); margin: 30px 0 22px; }
+      .t-title { font-size: 96px; font-weight: 800; line-height: 1.03; letter-spacing: -.02em; max-width: 1350px; }
+      .t-title .hl { color: var(--highlight); }
+      .t-sub { font-size: 38px; font-weight: 400; color: var(--muted); margin-top: 30px; }
+
+      #frame { position: absolute; left: 240px; top: 115px; width: 1440px; height: 850px; background: #fff; border-radius: 16px; box-shadow: 0 40px 120px rgba(0,0,0,.5); z-index: 2; }
+      .bar { height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 16px; background: #f1f3f8; border-radius: 16px 16px 0 0; border-bottom: 1px solid var(--line); }
+      .dot { width: 11px; height: 11px; border-radius: 50%; }
+      .url { margin-left: 14px; font-size: 15px; color: #5b647c; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 4px 14px; font-weight: 500; }
+      #a-roll { position: absolute; left: 240px; top: 155px; width: 1440px; height: 810px; object-fit: cover; background: #fff; border-radius: 0 0 16px 16px; z-index: 3; }
+
+      .chapter { position: absolute; left: 240px; top: 995px; height: 50px; display: flex; align-items: center; gap: 14px; padding: 0 26px; background: rgba(11,16,32,.9); /* --brand-deep */ border: 1px solid rgba(99,102,241,.5); /* --accent */ border-radius: 999px; font-size: 27px; font-weight: 600; z-index: 6; }
+      .chapter .d { width: 11px; height: 11px; border-radius: 50%; background: var(--highlight); }
+      #brandmark { position: absolute; right: 244px; top: 1008px; z-index: 6; opacity: .9; }
+
+      .cta-title { font-size: 88px; font-weight: 800; letter-spacing: -.02em; }
+      .cta-url { margin-top: 26px; font-size: 40px; font-weight: 600; color: var(--highlight); }
+    </style>
+  </head>
+  <body>
+    <!-- {{LOGO_SYMBOL}}: paste the contents of brands/<name>/logo.svg here as one
+         <symbol id="brand-logo" viewBox="0 0 178 21" fill="currentColor"> … paths … </symbol>
+         wrapped in: <svg width="0" height="0" style="position:absolute" aria-hidden="true"> … </svg> -->
+
+    <div id="root" data-composition-id="main" data-start="0" data-duration="{{TOTAL}}" data-width="1920" data-height="1080">
+
+      <div id="bg" class="clip fill bg" data-start="0" data-duration="{{TOTAL}}" data-track-index="0" style="z-index:0"></div>
+
+      <!-- Scene 1 — title -->
+      <div id="title" class="clip fill center bg" data-start="0" data-duration="3.05" data-track-index="1" style="z-index:5">
+        <svg class="wordmark" width="300" height="35" style="margin-bottom:10px"><use href="#brand-logo" /></svg>
+        <div class="kicker">{{KICKER}}</div>
+        <div class="t-title">{{TITLE_HTML}}</div> <!-- wrap the key phrase in <span class="hl">…</span> -->
+        <div class="t-sub">{{SUBTITLE}}</div>     <!-- only approved claims (numbers/names from the captured page) -->
+      </div>
+
+      <!-- Scene 2 — framed product footage -->
+      <div id="frame" class="clip" data-start="3.0" data-duration="{{FOOTAGE_DURATION}}" data-track-index="1">
+        <div class="bar">
+          <span class="dot" style="background:#ff5f57"></span>
+          <span class="dot" style="background:#febc2e"></span>
+          <span class="dot" style="background:#28c840"></span>
+          <span class="url">{{URL_LABEL}}</span>
+        </div>
+      </div>
+      <video id="a-roll" class="clip" src="capture.mp4" muted playsinline data-start="3.0" data-duration="{{FOOTAGE_DURATION}}" data-track-index="0"></video>
+      <svg id="brandmark" class="clip wordmark" width="176" height="21" data-start="3.0" data-duration="{{FOOTAGE_DURATION}}" data-track-index="2"><use href="#brand-logo" /></svg>
+
+      <!-- chapter lower-thirds — data-start = 3.0 + capture-beat time; give each a unique id -->
+      <div id="ch1" class="clip chapter" data-start="{{CH1_START}}" data-duration="{{CH1_DUR}}" data-track-index="3"><span class="d"></span> {{CH1_LABEL}}</div>
+      <div id="ch2" class="clip chapter" data-start="{{CH2_START}}" data-duration="{{CH2_DUR}}" data-track-index="3"><span class="d"></span> {{CH2_LABEL}}</div>
+      <div id="ch3" class="clip chapter" data-start="{{CH3_START}}" data-duration="{{CH3_DUR}}" data-track-index="3"><span class="d"></span> {{CH3_LABEL}}</div>
+
+      <!-- Scene 3 — CTA -->
+      <div id="cta" class="clip fill center bg" data-start="{{CTA_START}}" data-duration="2.6" data-track-index="4" style="z-index:8">
+        <svg class="wordmark" width="300" height="35" style="margin-bottom:34px"><use href="#brand-logo" /></svg>
+        <div class="cta-title">{{CTA_TITLE}}</div>
+        <div class="cta-url">{{CTA_URL}}</div>
+      </div>
+
+      <!-- ==================== OPTIONAL LAYERS (all supported — see references/production-notes.md, SKILL §5.4–5.7) ====
+        MUSIC:     <audio id="bgm" class="clip" src="bgm.mp3" data-start="0" data-duration="{{TOTAL}}" data-track-index="9" data-volume="0.85"></audio>
+                   local bed: scripts/gen-bgm.py bed.wav → ffmpeg -i bed.wav bgm.mp3. Or /media-use resolve --type bgm.
+                   Keep it a bed; if NARRATION exists, lower data-volume and duck via /hyperframes-audio.
+        NARRATION: scripts/tts.sh (Orpheus) per beat -> narrate.py derives scene/chapter times from the audio
+                   -> mix-audio.sh ducks the bed under the voice (-16 LUFS) -> use that one mp3 in the MUSIC seam above.
+                   Pick a voice that MATCHES the presenter: male leo/dan/zac, female leah/tara/jess/mia/zoe.
+                   Lock SCENE/CHAPTER times to the audio, not the reverse (voice length sets TOTAL; a snappier voice = shorter cut).
+        AVATAR:    face-only circular bubble(s), lip-synced, shown ONLY at intro / one transition / CTA (product stays hero).
+                     scripts/avatar.sh <plate> <line.wav> avatar-face.mp4   (LatentSync on a GPU host over SSH — see scripts/_env.sh)
+                   <plate> = brief avatar_plate: a PRIVATE recording OUTSIDE the repo (~/Videos/<Org>/DevRel/Talking_Head/<name>/);
+                   generated avatar-*.mp4 are gitignored. <line.wav> = the clean per-line voN.wav (best sync) or trim from the mix.
+                   avatar.sh normalizes the plate to 25fps (LatentSync's rate, else lips drift) + face-tracks (pins the head) +
+                   returns a SQUARE crop; the circle is CSS. Env STEPS=30 for a crisper mouth; brighten a backlit plate first.
+                   One <video> per moment, all sharing .face-bubble (data-duration = the line length):
+                     <video id="avatar" class="clip face-bubble" src="avatar-face.mp4" muted playsinline
+                            data-start="{{AVATAR_START}}" data-duration="{{AVATAR_DUR}}" data-track-index="11"></video>
+                   CSS:  .face-bubble { position:absolute; right:120px; bottom:140px; width:280px; height:280px;
+                            border-radius:50%; object-fit:cover; border:5px solid var(--highlight);
+                            box-shadow:0 20px 60px rgba(0,0,0,.5); background:var(--brand-deep); z-index:9; }  /* z-index > CTA card (8) */
+                   GSAP (per element, by id): tl.from("#avatar",{opacity:0,scale:0.6,y:24,duration:0.5},{{AVATAR_START}});
+                         tl.to("#avatar",{opacity:0,scale:0.9,duration:0.28},{{AVATAR_END}}-0.28);
+        SUBTITLES: ship captions.<lang>.srt alongside the video (soft, toggleable, one per language) — scripts/subtitles.sh
+                   burns a hard social cut. From narration: transcript via /media-use (WhisperX). Or author cues to the beats.
+      ============================================================================================================= -->
+
+      <!-- ==================== MULTI-ENVIRONMENT (terminal ⇄ browser) — see SKILL §5.8 ====================
+        A demo can move between the browser and the CLI (Claude Code): prompt in the terminal → switch to the
+        product in the browser → back to the terminal. Capture each terminal beat with scripts/capture-terminal.sh
+        (VHS renders the real Claude Code TUI headlessly → term<N>.mp4). Then place beats as SEQUENTIAL timeline
+        clips and hand off by fading each beat DOWN to opacity 0 — the brand .bg shows through, which IS a fade
+        through the brand colour (a pure crossfade ghosts terminal text through the page; fading over .bg doesn't).
+
+        (A) Terminal-frame chrome — the browser #frame, re-skinned dark. Add to <style>:
+            .terminal-frame { position:absolute; left:240px; top:115px; width:1440px; height:850px;
+                background:#0d1117; border-radius:16px; box-shadow:0 40px 120px rgba(0,0,0,.5); z-index:2; }
+            .terminal-frame .bar { background:#161b22; border-bottom:1px solid #30363d; }
+            .terminal-frame .bar .label { margin-left:14px; font-size:15px; color:#8b949e; font-weight:500; } /* "claude — ~/demo" */
+            .term-video { position:absolute; left:240px; top:155px; width:1440px; height:810px; object-fit:cover;
+                background:#0d1117; border-radius:0 0 16px 16px; z-index:3; }
+
+        (B) Timeline — beats back-to-back, each overlapping the next by ~0.7s so the hand-off has room:
+            <div id="t1-frame" class="clip terminal-frame" data-start="3.0" data-duration="12.0" data-track-index="1">
+              <div class="bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span>
+                   <span class="dot" style="background:#28c840"></span><span class="label">claude — ~/demo</span></div></div>
+            <video id="t1" class="clip term-video" src="term1.mp4" muted playsinline data-start="3.0" data-duration="12.0" data-track-index="0"></video>
+            <!-- browser beat: the existing #frame + #a-roll, starting at 3.0 + 12.0 − 0.7 = 14.3 -->
+            <!-- terminal beat 2: another .terminal-frame + .term-video, overlapping the browser's end likewise -->
+
+        (C) Hand-off (per seam at time S; 0.35s down through the brand bg + 0.45s up with a scale-pop — the eased fade the
+            browser cut uses). Give every clip a stable id:
+            tl.to("#t1-frame",{opacity:0,duration:0.35}, S-0.35); tl.to("#t1",{opacity:0,duration:0.35}, S-0.35);
+            tl.from("#frame",{opacity:0,scale:0.96,duration:0.45}, S); tl.from("#a-roll",{opacity:0,scale:0.96,duration:0.45}, S);
+
+        RE-ENACTMENT option (deterministic, no capture, no model): instead of a captured .term-video, drop in the
+        ready-made HTML terminal template `templates/cc-terminal.html` — a styled Claude Code window whose prompt is
+        typed out and answer revealed by GSAP (monospace + `width` in `ch` with `ease:"steps(N)"`). Copy its
+        .cc-terminal CSS + markup + GSAP as one beat. Pixel-perfect, re-times to narration, zero PII; you author the text.
+        QUICK PREVIEW without composing: scripts/stitch-envs.sh out.mp4 0b1020 term1.mp4 capture.mp4 term2.mp4
+      ============================================================================================================= -->
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.from("#title .wordmark", { opacity: 0, scale: 0.92, duration: 0.6 }, 0.0);
+      tl.from("#title .kicker",   { opacity: 0, y: -18, duration: 0.6 }, 0.25);
+      tl.from("#title .t-title",  { opacity: 0, y: 34, duration: 0.7 }, 0.45);
+      tl.from("#title .t-sub",    { opacity: 0, y: 20, duration: 0.6 }, 0.8);
+      tl.from("#frame",  { opacity: 0, scale: 0.95, duration: 0.6 }, 3.0);
+      tl.from("#a-roll", { opacity: 0, scale: 0.95, duration: 0.6 }, 3.0);
+      tl.from("#brandmark", { opacity: 0, duration: 0.5 }, 3.3);
+      tl.from("#ch1", { opacity: 0, x: -26, duration: 0.5 }, {{CH1_ANIM}});
+      tl.from("#ch2", { opacity: 0, x: -26, duration: 0.5 }, {{CH2_ANIM}});
+      tl.from("#ch3", { opacity: 0, x: -26, duration: 0.5 }, {{CH3_ANIM}});
+      tl.from("#cta .wordmark",  { opacity: 0, y: 22, duration: 0.5 }, {{CTA_START}});
+      tl.from("#cta .cta-title", { opacity: 0, y: 28, duration: 0.6 }, {{CTA_START}}+0.15);
+      tl.from("#cta .cta-url",   { opacity: 0, y: 20, duration: 0.6 }, {{CTA_START}}+0.4);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

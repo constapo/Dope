@@ -32,7 +32,7 @@ These directory entries have no `/plugin install` command (they use git clone, a
 | 26 | **prompt-master** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/nidhinjs/prompt-master |
 | 27 | **Skill_Seekers** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/yusufkaraaslan/Skill_Seekers |
 | 28 | **memU** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/NevaMind-AI/memU |
-| 29 | **OpenCreator** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/krillinai/OpenCreator |
+| 29 | **OpenCreator** | ✅ Installed 2026-11-05 into `.claude/skills/` (video priority). | Copy the skill folder into `.claude/skills/` per the README | https://github.com/krillinai/OpenCreator |
 | 30 | **agent-desktop** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/vercel-labs/agent-desktop |
 | 31 | **hive** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/aden-hive/hive |
 | 32 | **drawio-skill** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/Agents365-ai/drawio-skill |
@@ -46,7 +46,7 @@ These directory entries have no `/plugin install` command (they use git clone, a
 | 40 | **appllama-skills** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/Appllama/appllama-skills |
 | 41 | **Continuous-Claude-v3** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/parcadei/Continuous-Claude-v3 |
 | 42 | **pinme** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/glitternetwork/pinme |
-| 43 | **drama-skills** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/zenstory-ai/drama-skills |
+| 43 | **drama-skills** | ✅ Installed 2026-11-05 into `.claude/skills/` (video priority). | Copy the skill folder into `.claude/skills/` per the README | https://github.com/zenstory-ai/drama-skills |
 | 44 | **ctf-skills** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/ljagiello/ctf-skills |
 | 45 | **Claude-Code-Everything-You-Need-to-Know** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/wesammustafa/Claude-Code-Everything-You-Need-to-Know |
 | 46 | **pstack** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/backnotprop/pstack |
@@ -68,6 +68,6 @@ These directory entries have no `/plugin install` command (they use git clone, a
 | 62 | **ok-skills** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/mxyhi/ok-skills |
 | 63 | **llm-council-skill** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/gcpdev/llm-council-skill |
 | 64 | **ai-marketing-claude-code-skills** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/BrianRWagner/ai-marketing-claude-code-skills |
-| 65 | **skill-video-studio** | Copy the skill folder into `.claude/skills/` per the README | https://github.com/aaitor/skill-video-studio |
+| 65 | **skill-video-studio** | ✅ Installed 2026-11-05 into `.claude/skills/` (video priority). | Copy the skill folder into `.claude/skills/` per the README | https://github.com/aaitor/skill-video-studio |
 | 66 | **marketing-skills** | Marketplace name clashes with another repo, add it under its own name: `/plugin marketplace add irinabuht12-oss/marketing-skills`<br>`/plugin install marketing-skills@ryze` | https://github.com/irinabuht12-oss/marketing-skills |
 | 67 | **pm-skills** | Marketplace name clashes with another repo, add it under its own name: `/plugin marketplace add phuryn/pm-skills`<br>`/plugin install pm-product-discovery@pm-skills` | https://github.com/phuryn/pm-skills |

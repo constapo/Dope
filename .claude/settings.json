@@ -1,9 +1,117 @@
 {
   "extraKnownMarketplaces": {
+    "addy-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "addyosmani/agent-skills"
+      }
+    },
+    "agentic-awesome-skills": {
+      "source": {
+        "source": "github",
+        "repo": "sickn33/agentic-awesome-skills"
+      }
+    },
+    "agenticnotetaking": {
+      "source": {
+        "source": "github",
+        "repo": "agenticnotetaking/arscontexta"
+      }
+    },
+    "agricidaniel-claude-obsidian": {
+      "source": {
+        "source": "github",
+        "repo": "AgriciDaniel/claude-obsidian"
+      }
+    },
+    "agy-staff": {
+      "source": {
+        "source": "github",
+        "repo": "keli-wen/agy-staff"
+      }
+    },
+    "ai-marketing-hub-claude-ads": {
+      "source": {
+        "source": "github",
+        "repo": "AgriciDaniel/claude-ads"
+      }
+    },
+    "ai-research-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Orchestra-Research/AI-Research-SKILLs"
+      }
+    },
+    "aidojo": {
+      "source": {
+        "source": "github",
+        "repo": "karanb192/awesome-claude-code-mods"
+      }
+    },
+    "aiguide": {
+      "source": {
+        "source": "github",
+        "repo": "timescale/pg-aiguide"
+      }
+    },
     "animate": {
       "source": {
         "source": "github",
         "repo": "cth9191/animate"
+      }
+    },
+    "answer-me-with-html": {
+      "source": {
+        "source": "github",
+        "repo": "QingYunA/answer-me-with-html"
+      }
+    },
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    },
+    "aris": {
+      "source": {
+        "source": "github",
+        "repo": "wanshuiyin/Auto-claude-code-research-in-sleep"
+      }
+    },
+    "auteur": {
+      "source": {
+        "source": "github",
+        "repo": "agiwhitelist/auteur"
+      }
+    },
+    "autoharness": {
+      "source": {
+        "source": "github",
+        "repo": "tigerless-labs/autoharness"
+      }
+    },
+    "awesome-claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "ccplugins/awesome-claude-code-plugins"
+      }
+    },
+    "awesome-claude-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "composio-community/awesome-claude-plugins"
+      }
+    },
+    "babysitter": {
+      "source": {
+        "source": "github",
+        "repo": "a5c-ai/babysitter"
+      }
+    },
+    "bama": {
+      "source": {
+        "source": "github",
+        "repo": "daveebbelaar/bama"
       }
     },
     "bitwize-music": {
@@ -18,10 +126,70 @@
         "repo": "latent-spaces/brag"
       }
     },
+    "brooks-lint-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "hyhmrright/brooks-lint"
+      }
+    },
+    "buildwithclaude": {
+      "source": {
+        "source": "github",
+        "repo": "davepoon/buildwithclaude"
+      }
+    },
     "capcut-cli": {
       "source": {
         "source": "github",
         "repo": "renezander030/capcut-cli"
+      }
+    },
+    "career-ops": {
+      "source": {
+        "source": "github",
+        "repo": "career-ops-hq/career-ops"
+      }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "cc-safety-net-dev": {
+      "source": {
+        "source": "github",
+        "repo": "kenryu42/cc-safety-net"
+      }
+    },
+    "chisle": {
+      "source": {
+        "source": "github",
+        "repo": "JayPokale/Chisle"
+      }
+    },
+    "citadel-local": {
+      "source": {
+        "source": "github",
+        "repo": "SethGammon/Citadel"
+      }
+    },
+    "claude-code-skills": {
+      "source": {
+        "source": "github",
+        "repo": "alirezarezvani/claude-skills"
+      }
+    },
+    "claude-code-workflows": {
+      "source": {
+        "source": "github",
+        "repo": "wshobson/agents"
+      }
+    },
+    "claude-equity-research-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "quant-sentiment-ai/claude-equity-research"
       }
     },
     "claude-plugins-official": {
@@ -30,10 +198,184 @@
         "repo": "anthropics/claude-plugins-official"
       }
     },
+    "claude-settings": {
+      "source": {
+        "source": "github",
+        "repo": "fcakyon/claude-codex-settings"
+      }
+    },
+    "claude-share": {
+      "source": {
+        "source": "github",
+        "repo": "Paradigm-Study/claude-share"
+      }
+    },
     "claude-video-vision": {
       "source": {
         "source": "github",
         "repo": "jordanrendric/claude-video-vision"
+      }
+    },
+    "codeman": {
+      "source": {
+        "source": "github",
+        "repo": "Ark0N/Codeman"
+      }
+    },
+    "codex-attachment-manager": {
+      "source": {
+        "source": "github",
+        "repo": "chipfighter/framekeeper"
+      }
+    },
+    "cursor-rules-java": {
+      "source": {
+        "source": "github",
+        "repo": "jabrena/plinth"
+      }
+    },
+    "day-trader-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Jakeschincariol/day-trader-skill"
+      }
+    },
+    "designlang": {
+      "source": {
+        "source": "github",
+        "repo": "Manavarya09/design-extract"
+      }
+    },
+    "diagram-design": {
+      "source": {
+        "source": "github",
+        "repo": "cathrynlavery/diagram-design"
+      }
+    },
+    "divar": {
+      "source": {
+        "source": "github",
+        "repo": "divar-ir/ai-doc-gen"
+      }
+    },
+    "dryforge": {
+      "source": {
+        "source": "github",
+        "repo": "prekuter/dryforge"
+      }
+    },
+    "egm": {
+      "source": {
+        "source": "github",
+        "repo": "google/elephant-goldfish-model"
+      }
+    },
+    "ego-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "citrolabs/ego-lite"
+      }
+    },
+    "elementalsouls": {
+      "source": {
+        "source": "github",
+        "repo": "elementalsouls/Claude-BugHunter"
+      }
+    },
+    "emotix": {
+      "source": {
+        "source": "github",
+        "repo": "emotixco/claude-skills-founder"
+      }
+    },
+    "engram": {
+      "source": {
+        "source": "github",
+        "repo": "nagisanzenin/engram"
+      }
+    },
+    "feder-cr": {
+      "source": {
+        "source": "github",
+        "repo": "feder-cr/invisible_playwright_mcp"
+      }
+    },
+    "floorplan": {
+      "source": {
+        "source": "github",
+        "repo": "haydenschmitty/floorplan"
+      }
+    },
+    "fullstack-dev-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Jeffallan/claude-skills"
+      }
+    },
+    "hallmark": {
+      "source": {
+        "source": "github",
+        "repo": "Nutlope/hallmark"
+      }
+    },
+    "harness-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "revfactory/harness"
+      }
+    },
+    "headcount": {
+      "source": {
+        "source": "github",
+        "repo": "cbrock84/headcount"
+      }
+    },
+    "hippo-memory": {
+      "source": {
+        "source": "github",
+        "repo": "kitfunso/hippo-memory"
+      }
+    },
+    "hivemind": {
+      "source": {
+        "source": "github",
+        "repo": "activeloopai/hivemind"
+      }
+    },
+    "humanizer": {
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "kami": {
+      "source": {
+        "source": "github",
+        "repo": "tw93/Kami"
+      }
+    },
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "multica-ai/andrej-karpathy-skills"
+      }
+    },
+    "khazix-skills": {
+      "source": {
+        "source": "github",
+        "repo": "KKKKhazix/khazix-skills"
       }
     },
     "lemolab": {
@@ -42,22 +384,597 @@
         "repo": "lemomo-ai/lemo-opuscar"
       }
     },
+    "levnikolaevich-skills-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "levnikolaevich/claude-code-skills"
+      }
+    },
+    "linkedin-agent-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Jakeschincariol/linkedin-agent-skill"
+      }
+    },
+    "linkedin-skills": {
+      "source": {
+        "source": "github",
+        "repo": "sergebulaev/linkedin-skills"
+      }
+    },
+    "logo-design-skill": {
+      "source": {
+        "source": "github",
+        "repo": "kaankiziltug/logo-design-skill"
+      }
+    },
+    "marketingskills": {
+      "source": {
+        "source": "github",
+        "repo": "coreyhaines31/marketingskills"
+      }
+    },
+    "memsearch-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "zilliztech/memsearch"
+      }
+    },
+    "mex": {
+      "source": {
+        "source": "github",
+        "repo": "mex-memory/mex"
+      }
+    },
+    "my-claude-code-mods": {
+      "source": {
+        "source": "github",
+        "repo": "YeonwooSung/my-claude-code-mods"
+      }
+    },
+    "nateherk": {
+      "source": {
+        "source": "github",
+        "repo": "nateherkai/scroll-craft"
+      }
+    },
+    "novel-to-game-skills": {
+      "source": {
+        "source": "github",
+        "repo": "zenstory-ai/novel-to-game"
+      }
+    },
+    "nowork-studio": {
+      "source": {
+        "source": "github",
+        "repo": "nowork-studio/notfair-plugin"
+      }
+    },
+    "nyldn-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "nyldn/claude-octopus"
+      }
+    },
+    "obsidian-wiki": {
+      "source": {
+        "source": "github",
+        "repo": "Ar9av/obsidian-wiki"
+      }
+    },
+    "oh-story-skills": {
+      "source": {
+        "source": "github",
+        "repo": "zenstory-ai/oh-story-claudecode"
+      }
+    },
+    "oliver-kriska": {
+      "source": {
+        "source": "github",
+        "repo": "oliver-kriska/claude-elixir-phoenix"
+      }
+    },
+    "open-code-review": {
+      "source": {
+        "source": "github",
+        "repo": "alibaba/open-code-review"
+      }
+    },
     "open-design": {
       "source": {
         "source": "github",
         "repo": "nexu-io/open-design"
       }
+    },
+    "open-steps": {
+      "source": {
+        "source": "github",
+        "repo": "kharmanskyi/open-steps"
+      }
+    },
+    "openqodex": {
+      "source": {
+        "source": "github",
+        "repo": "openqodex/openqodex"
+      }
+    },
+    "pascal": {
+      "source": {
+        "source": "github",
+        "repo": "pascalorg/editor"
+      }
+    },
+    "pixelfx": {
+      "source": {
+        "source": "github",
+        "repo": "patch-gg/pixelfx"
+      }
+    },
+    "planning-with-files": {
+      "source": {
+        "source": "github",
+        "repo": "OthmanAdi/planning-with-files"
+      }
+    },
+    "pm-skills": {
+      "source": {
+        "source": "github",
+        "repo": "deanpeters/Product-Manager-Skills"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "power-platform-skills": {
+      "source": {
+        "source": "github",
+        "repo": "microsoft/power-platform-skills"
+      }
+    },
+    "pro-workflow": {
+      "source": {
+        "source": "github",
+        "repo": "rohitg00/pro-workflow"
+      }
+    },
+    "pstack-claude": {
+      "source": {
+        "source": "github",
+        "repo": "michael-denyer/pstack-claude"
+      }
+    },
+    "rea": {
+      "source": {
+        "source": "github",
+        "repo": "morluto/rea"
+      }
+    },
+    "reactive-resume": {
+      "source": {
+        "source": "github",
+        "repo": "reactive-resume/reactive-resume"
+      }
+    },
+    "recall": {
+      "source": {
+        "source": "github",
+        "repo": "raiyanyahya/recall"
+      }
+    },
+    "replica-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Jakeschincariol/replica-skill"
+      }
+    },
+    "ryze": {
+      "source": {
+        "source": "github",
+        "repo": "Ryze-AI-Adgent/open-seo-mcp-skills"
+      }
+    },
+    "smart-ralph": {
+      "source": {
+        "source": "github",
+        "repo": "tzachbon/smart-ralph"
+      }
+    },
+    "sno-ai": {
+      "source": {
+        "source": "github",
+        "repo": "sno-ai/sno-station-skills"
+      }
+    },
+    "social-media-research-skills": {
+      "source": {
+        "source": "github",
+        "repo": "ScrapeCreators/social-media-research-skills"
+      }
+    },
+    "specstory": {
+      "source": {
+        "source": "github",
+        "repo": "specstoryai/getspecstory"
+      }
+    },
+    "taste-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Leonxlnx/taste-skill"
+      }
+    },
+    "terminal-browser": {
+      "source": {
+        "source": "github",
+        "repo": "zenbu-labs/terminal-browser"
+      }
+    },
+    "terrashark": {
+      "source": {
+        "source": "github",
+        "repo": "LukasNiessen/terrashark"
+      }
+    },
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      }
+    },
+    "unbrowse": {
+      "source": {
+        "source": "github",
+        "repo": "unbrowse-ai/unbrowse"
+      }
+    },
+    "understand-anything": {
+      "source": {
+        "source": "github",
+        "repo": "Egonex-AI/Understand-Anything"
+      }
+    },
+    "universal-modder": {
+      "source": {
+        "source": "github",
+        "repo": "rehan-remade/universal-modder"
+      }
+    },
+    "wondelai-skills": {
+      "source": {
+        "source": "github",
+        "repo": "wondelai/skills"
+      }
+    },
+    "worktrunk": {
+      "source": {
+        "source": "github",
+        "repo": "max-sixty/worktrunk"
+      }
     }
   },
   "enabledPlugins": {
-    "hyperframes@claude-plugins-official": true,
-    "runway-api@claude-plugins-official": true,
-    "brag@brag": true,
-    "lemo-opuscar@lemolab": true,
+    "012-agile-epic@cursor-rules-java": true,
+    "academy-guide@anthropic-agent-skills": true,
+    "aeo@claude-settings": true,
+    "agent-profiler@my-claude-code-mods": true,
+    "agent-sdk-dev@claude-plugins-official": true,
+    "agent-skills@addy-agent-skills": true,
+    "agentic-awesome-skills@agentic-awesome-skills": true,
+    "agy@agy-staff": true,
+    "ai-doc-gen@divar": true,
+    "ai-plugins@claude-plugins-official": true,
+    "airwallex-agentos@claude-plugins-official": true,
+    "alloydb-omni@claude-plugins-official": true,
+    "alloydb@claude-plugins-official": true,
+    "amazon-selling-partner@claude-plugins-official": true,
+    "amd-skills@claude-plugins-official": true,
+    "andrej-karpathy-skills@karpathy-skills": true,
     "animate@animate": true,
-    "claude-video-vision@claude-video-vision": true,
+    "answer-me-with-html@answer-me-with-html": true,
+    "aris@aris": true,
+    "arscontexta@agenticnotetaking": true,
+    "asana@claude-plugins-official": true,
+    "astronomer-data-agents@claude-plugins-official": true,
+    "atlassian-twg-cli@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true,
+    "atomic-agents@claude-plugins-official": true,
+    "auteur@auteur": true,
+    "autoharness@autoharness": true,
+    "aws-agents@claude-plugins-official": true,
+    "aws-data-analytics@claude-plugins-official": true,
+    "azure-cosmos-db-assistant@claude-plugins-official": true,
+    "azure-sql-developer@claude-plugins-official": true,
+    "azure@claude-plugins-official": true,
+    "babysitter@babysitter": true,
+    "bama@bama": true,
+    "bigquery-data-analytics@claude-plugins-official": true,
+    "bitwize-music@bitwize-music": true,
+    "blackrock-advisor-center-plugin@claude-plugins-official": true,
+    "boltz@claude-plugins-official": true,
+    "brag@brag": true,
+    "brooks-lint@brooks-lint-marketplace": true,
+    "build-with-wordpress@claude-plugins-official": true,
     "capcut-cli@capcut-cli": true,
+    "carbone-skill@claude-plugins-official": true,
+    "career-ops@career-ops": true,
+    "caveman@caveman": true,
+    "cc-safety-net@cc-safety-net-dev": true,
+    "chisle@chisle": true,
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "chronograph-gp@claude-plugins-official": true,
+    "chronograph-lp@claude-plugins-official": true,
+    "circle-skills@claude-plugins-official": true,
+    "circleback@claude-plugins-official": true,
+    "citadel@citadel-local": true,
+    "ckeditor@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "claude-ads@ai-marketing-hub-claude-ads": true,
+    "claude-bughunter@elementalsouls": true,
+    "claude-md-management@claude-plugins-official": true,
+    "claude-mem@thedotmack": true,
+    "claude-obsidian@agricidaniel-claude-obsidian": true,
+    "claude-video-vision@claude-video-vision": true,
+    "clay@claude-plugins-official": true,
+    "clickhouse-best-practices@claude-plugins-official": true,
+    "clickhouse@claude-plugins-official": true,
+    "cloud-sql-mysql@claude-plugins-official": true,
+    "cloud-sql-postgresql@claude-plugins-official": true,
+    "cloud-sql-sqlserver@claude-plugins-official": true,
+    "code-modernization@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "codeman@codeman": true,
+    "coderabbit@claude-plugins-official": true,
+    "codex-attachment-manager@codex-attachment-manager": true,
+    "codspeed@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "confidence@claude-plugins-official": true,
+    "connect-apps@awesome-claude-plugins": true,
+    "context-memory@awesome-claude-code-plugins": true,
+    "convex@claude-plugins-official": true,
+    "crowdstrike-falcon-fusion@claude-plugins-official": true,
+    "csharp-lsp@claude-plugins-official": true,
+    "cwc-makers@claude-plugins-official": true,
+    "dash0@claude-plugins-official": true,
+    "data-agent-kit@claude-plugins-official": true,
+    "data-engineering@claude-plugins-official": true,
+    "databases-on-aws@claude-plugins-official": true,
+    "databricks@claude-plugins-official": true,
+    "datahub-skills@claude-plugins-official": true,
+    "dataproc@claude-plugins-official": true,
+    "day-trader-skill@day-trader-skill": true,
+    "deepeval@claude-plugins-official": true,
+    "designlang@designlang": true,
+    "diagram-design@diagram-design": true,
+    "discernment-nudge@anthropic-agent-skills": true,
+    "discord@claude-plugins-official": true,
+    "documentation-standards@claude-code-workflows": true,
+    "dryforge@dryforge": true,
+    "duckdb-skills@claude-plugins-official": true,
+    "dynatrace@claude-plugins-official": true,
+    "egm@egm": true,
+    "ego@ego-agent-skills": true,
+    "elixir-phoenix@oliver-kriska": true,
+    "engram@engram": true,
+    "example-skills@anthropic-agent-skills": true,
+    "executive@headcount": true,
+    "explanatory-output-style@claude-plugins-official": true,
+    "expo@claude-plugins-official": true,
+    "fakechat@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "fiftyone@claude-plugins-official": true,
+    "firebase@claude-plugins-official": true,
+    "firecrawl@claude-plugins-official": true,
+    "firestore-native@claude-plugins-official": true,
+    "floorplan@floorplan": true,
+    "founder@emotix": true,
+    "fullstack-dev-skills@fullstack-dev-skills": true,
+    "fullstory@claude-plugins-official": true,
+    "gc-ai@claude-plugins-official": true,
+    "google-cloud-storage@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "govtribe@claude-plugins-official": true,
+    "grafana-mcp@claude-plugins-official": true,
+    "greptile@claude-plugins-official": true,
+    "hallmark@hallmark": true,
+    "harness@harness-marketplace": true,
+    "hippo-memory@hippo-memory": true,
+    "hivemind@hivemind": true,
+    "hookify@claude-plugins-official": true,
+    "hubspot-sales@claude-plugins-official": true,
+    "humanizer@humanizer": true,
+    "hunter@claude-plugins-official": true,
+    "hyperframes@claude-plugins-official": true,
+    "i-have-adhd@i-have-adhd": true,
+    "idmp-plugin@claude-plugins-official": true,
+    "imessage@claude-plugins-official": true,
+    "impeccable@impeccable": true,
+    "informatica-for-claude-platform@claude-plugins-official": true,
+    "intuit-quickbooks@claude-plugins-official": true,
+    "invisible-playwright-mcp@feder-cr": true,
+    "jdtls-lsp@claude-plugins-official": true,
+    "jfrog@claude-plugins-official": true,
+    "kami@kami": true,
+    "khazix-skills@khazix-skills": true,
+    "knowledge-catalog@claude-plugins-official": true,
+    "kotlin-lsp@claude-plugins-official": true,
+    "langfuse-observability@claude-plugins-official": true,
+    "laravel-boost@claude-plugins-official": true,
+    "leadfeeder@claude-plugins-official": true,
+    "learning-output-style@claude-plugins-official": true,
+    "legalzoom@claude-plugins-official": true,
+    "lemo-opuscar@lemolab": true,
+    "linkedin-agent@linkedin-agent-skill": true,
+    "linkedin-skills@linkedin-skills": true,
+    "linq-alpha@claude-plugins-official": true,
+    "liquid-lsp@claude-plugins-official": true,
+    "liquid-skills@claude-plugins-official": true,
+    "logfire@claude-plugins-official": true,
+    "logo-design@logo-design-skill": true,
+    "logrocket@claude-plugins-official": true,
+    "looker@claude-plugins-official": true,
+    "lore@specstory": true,
+    "lovable@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "lumen@claude-plugins-official": true,
+    "lusha@claude-plugins-official": true,
+    "mapbox@claude-plugins-official": true,
+    "marketing-skills@claude-code-skills": true,
+    "marketing-skills@marketingskills": true,
+    "math-olympiad@claude-plugins-official": true,
+    "math-proof@claude-plugins-official": true,
+    "mcp-apps@claude-plugins-official": true,
+    "mcp-server-dev@claude-plugins-official": true,
+    "mcp-tunnels@claude-plugins-official": true,
+    "memsearch@memsearch-plugins": true,
+    "mercadopago@claude-plugins-official": true,
+    "mergify@claude-plugins-official": true,
+    "mex@mex": true,
+    "microsoft-docs@claude-plugins-official": true,
+    "migration-to-aws@claude-plugins-official": true,
+    "mintlify@claude-plugins-official": true,
+    "mlflow@claude-plugins-official": true,
+    "mobile-debug-tools@buildwithclaude": true,
+    "mod-finder@aidojo": true,
+    "model-architecture@ai-research-skills": true,
+    "mongodb-atlas@claude-plugins-official": true,
+    "mongodb@claude-plugins-official": true,
+    "nateherk-design@nateherk": true,
+    "neon@claude-plugins-official": true,
+    "netlify-skills@claude-plugins-official": true,
+    "netsuite-finance-analyst@claude-plugins-official": true,
+    "netsuite-suitecloud@claude-plugins-official": true,
+    "newrelic@claude-plugins-official": true,
+    "nightvision@claude-plugins-official": true,
+    "notfair@nowork-studio": true,
+    "notion@claude-plugins-official": true,
+    "novel-to-game@novel-to-game-skills": true,
+    "nvidia-skills@claude-plugins-official": true,
+    "obsidian-wiki@obsidian-wiki": true,
+    "octo@nyldn-plugins": true,
+    "oh-story@oh-story-skills": true,
+    "open-code-review@open-code-review": true,
     "open-design@open-design": true,
-    "bitwize-music@bitwize-music": true
+    "open-seo-mcp-skills@ryze": true,
+    "open-steps@open-steps": true,
+    "openqodex@openqodex": true,
+    "oracle-ai-data-platform-workbench-databricks-migrator@claude-plugins-official": true,
+    "oracle-ai-data-platform-workbench-engineer-agent@claude-plugins-official": true,
+    "oracle-ai-data-platform-workbench-spark-connectors@claude-plugins-official": true,
+    "oracledb@claude-plugins-official": true,
+    "outputai@claude-plugins-official": true,
+    "pascal-agent-skills@pascal": true,
+    "paypal@claude-plugins-official": true,
+    "pendo-guides@claude-plugins-official": true,
+    "pendo-orchestrate@claude-plugins-official": true,
+    "pg@aiguide": true,
+    "php-lsp@claude-plugins-official": true,
+    "pigment@claude-plugins-official": true,
+    "pinecone@claude-plugins-official": true,
+    "pixelfx@pixelfx": true,
+    "planning-with-files@planning-with-files": true,
+    "playground@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "ponytail@ponytail": true,
+    "posthog@claude-plugins-official": true,
+    "postman@claude-plugins-official": true,
+    "power-pages@power-platform-skills": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "preset-cli-skills@claude-plugins-official": true,
+    "pro-workflow@pro-workflow": true,
+    "product-discovery-suite@levnikolaevich-skills-marketplace": true,
+    "product-manager-skills@pm-skills": true,
+    "product-strategy@wondelai-skills": true,
+    "project-artifact@claude-plugins-official": true,
+    "pstack@pstack-claude": true,
+    "pydantic-ai@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "qdrant-skills@claude-plugins-official": true,
+    "quarkus-agent@claude-plugins-official": true,
+    "railway@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "ralph-specum@smart-ralph": true,
+    "rc@claude-plugins-official": true,
+    "rea@rea": true,
+    "reactive-resume@reactive-resume": true,
+    "recall@recall": true,
+    "receipts@claude-plugins-official": true,
+    "redis-development@claude-plugins-official": true,
+    "remember@claude-plugins-official": true,
+    "replica-skill@replica-skill": true,
+    "resend@claude-plugins-official": true,
+    "revenuecat@claude-plugins-official": true,
+    "rill@claude-plugins-official": true,
+    "rootly@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true,
+    "runway-api@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "sagemaker-ai@claude-plugins-official": true,
+    "salesforce-development@claude-plugins-official": true,
+    "sap-cds-mcp@claude-plugins-official": true,
+    "sap-fiori-mcp-server@claude-plugins-official": true,
+    "sap-hana-cli@claude-plugins-official": true,
+    "sap-mdk-server@claude-plugins-official": true,
+    "save-to-spotify@claude-plugins-official": true,
+    "scandit-sdk@claude-plugins-official": true,
+    "semgrep@claude-plugins-official": true,
+    "sentry-cli@claude-plugins-official": true,
+    "sentry@claude-plugins-official": true,
+    "serena@claude-plugins-official": true,
+    "session-report@claude-plugins-official": true,
+    "setup-agent-analytics@claude-plugins-official": true,
+    "setup-mcp-agent-analytics@claude-plugins-official": true,
+    "shared-session@claude-share": true,
+    "shippo@claude-plugins-official": true,
+    "shopify-ai-toolkit@claude-plugins-official": true,
+    "slack@claude-plugins-official": true,
+    "sno-station@sno-ai": true,
+    "snowflake-cortex-code@claude-plugins-official": true,
+    "social-media-research-skills@social-media-research-skills": true,
+    "sonarqube@claude-plugins-official": true,
+    "sonatype-guide@claude-plugins-official": true,
+    "sourcegraph@claude-plugins-official": true,
+    "spanner@claude-plugins-official": true,
+    "spotify-ads-api@claude-plugins-official": true,
+    "stackhawk-hawkscan@claude-plugins-official": true,
+    "streaming-skills-plugin@claude-plugins-official": true,
+    "stripe@claude-plugins-official": true,
+    "sumup@claude-plugins-official": true,
+    "supabase@claude-plugins-official": true,
+    "superdesign@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "taste-skill@taste-skill": true,
+    "teamcity-cli@claude-plugins-official": true,
+    "telegram@claude-plugins-official": true,
+    "terminal-browser@terminal-browser": true,
+    "terraform@claude-plugins-official": true,
+    "terrashark@terrashark": true,
+    "togetherai-skills@claude-plugins-official": true,
+    "trading-ideas@claude-equity-research-marketplace": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "ui-theme-designer@claude-plugins-official": true,
+    "ui5-modernization@claude-plugins-official": true,
+    "ui5-typescript-conversion@claude-plugins-official": true,
+    "ui5@claude-plugins-official": true,
+    "unbrowse@unbrowse": true,
+    "understand-anything@understand-anything": true,
+    "universal-modder@universal-modder": true,
+    "unreal-engine-skills-for-claude-code@claude-plugins-official": true,
+    "vanguard-advisor-tools@claude-plugins-official": true,
+    "vanta-mcp-plugin@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true,
+    "vibe-prospecting@claude-plugins-official": true,
+    "vsql-extension-builder@claude-plugins-official": true,
+    "windsor-ai@claude-plugins-official": true,
+    "wingspan@claude-plugins-official": true,
+    "workos@claude-plugins-official": true,
+    "worktrunk@worktrunk": true,
+    "youdotcom-agent-skills@claude-plugins-official": true,
+    "zilliz@claude-plugins-official": true,
+    "zocks-advisor@claude-plugins-official": true,
+    "zscaler@claude-plugins-official": true,
+    "zyte-web-data@claude-plugins-official": true
   }
 }

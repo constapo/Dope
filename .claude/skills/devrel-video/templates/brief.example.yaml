@@ -1,0 +1,59 @@
+# devrel-video project manifest. Copy to projects/<slug>/brief.yaml and fill in.
+id: example-walkthrough
+mode: silent-demo             # silent-demo | narrated-devrel (roadmap) | promo (roadmap)
+audience: developers evaluating the product
+message: "One clear outcome the video proves"
+cta:
+  title: "Start building"
+  url: "example.com/docs"
+duration_target_seconds: 30
+brand: acme                   # brands/<name>/  (tokens.json + logo.svg)
+
+capture:
+  url: "https://example.com/app"
+  start_command: null         # local products, e.g. "npm run dev"
+  viewport: "1600x900"
+  url_label: "example.com/app"  # shown in the browser-frame address bar
+
+# Multi-environment (optional) — a demo can switch between the CLI (Claude Code) and the browser.
+# Omit for a pure-browser video (the default). Order = on-screen order; beats hand off via a fade
+# through the brand teal (SKILL §5.8). Terminal beats: scripts/capture-terminal.sh <tape> → term<N>.mp4.
+environments: []              # e.g.:
+  # - kind: terminal          #   Claude Code TUI, recorded with VHS (scripts/capture-terminal.sh)
+  #   tape: intro.tape        #   copy templates/terminal-script.tape; set {{DEMO_DIR}} + {{PROMPT}}
+  #   prompt: "Find me an AI weather agent I can call and pay for"
+  # - kind: browser           #   the capture: block above (scripts/capture.sh)
+  #   url: "https://example.com/app"
+  # - kind: terminal
+  #   tape: pay.tape
+  #   prompt: "Now pay that agent 0.05 USDC over MCP and show me the receipt"
+terminal:
+  demo_dir: null              # e.g. ~/acme-demo — a CLEAN throwaway dir to record in (host paths
+                              # show in the prompt + tool calls). Sanitation lives in the .tape (see template).
+
+# Each beat becomes a chapter lower-third. chapter data-start = 3.0 (title) + at_seconds.
+beats:
+  - label: "First thing you see"
+    at_seconds: 0.3
+  - label: "The key action"
+    at_seconds: 7.5
+  - label: "The payoff"
+    at_seconds: 13.8
+
+approved_claims:              # only these may appear on screen — from the captured page, never invented
+  - "put real numbers/names here"
+
+outputs:
+  - profile: docs-16x9        # 1920x1080, silent
+  # - profile: social-9x16    # roadmap: recompose for portrait, don't crop
+  # - profile: web-loop       # roadmap: short muted loop
+
+# ── Optional layers (all supported — see references/production-notes.md, SKILL §5.4–5.7) ──
+audio:
+  music: null                 # bgm.mp3 → scripts/gen-bgm.py (local, no auth) or /media-use resolve --type bgm
+  narration: null             # voice MUST match the presenter: male leo/dan/zac, female leah/tara/jess/mia/zoe.
+                              # scripts/tts.sh per beat; narrate.py drives timing; mix-audio.sh ducks the bed. Changing it later = full re-gen.
+  avatar: null                # e.g. [intro, cta] -> face-only circular bubble at key moments (LatentSync on your GPU host — see scripts/_env.sh)
+  avatar_plate: null          # BRING YOUR OWN talking-head recording, kept OUTSIDE this repo (your face is never committed).
+                              # e.g. ~/Videos/<Org>/DevRel/Talking_Head/<name>/<file>.mp4  — see README "Talking-head avatar". avatar.sh reads it; bubbles are gitignored.
+  subtitles: []               # e.g. [en, es] -> captions.<lang>.srt (author to the beats, or from narration later)
